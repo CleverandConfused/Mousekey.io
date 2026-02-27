@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MouseKey — Turn Your Middle Mouse Button Into a Shortcut Engine | Windows</title>
+    <meta name="description" content="MouseKey transforms your middle mouse button into a powerful shortcut engine. Assign hotkeys to click patterns — double, triple, quad, or quint clicks. Available for Windows 10/11. No account, no telemetry.">
+    <meta name="keywords" content="mouse hotkey, middle mouse button, mouse shortcuts, Windows productivity tool, mouse click patterns, keyboard shortcut alternative, mouse macro, custom hotkeys, MouseKey, Vaelor, mouse utility, Windows 10, Windows 11, productivity app, desk job productivity">
+    <meta name="author" content="Vaelor">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://cleverandconfused.github.io/">
+    <link rel="icon" type="image/png" href="images/mousekey-logo.png">
+    <meta name="theme-color" content="#0D1B2A">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="MouseKey — Turn Your Middle Mouse Button Into a Shortcut Engine">
+    <meta property="og:description" content="Assign hotkeys to mouse click patterns. Double, triple, quad, or quint-click your middle button to trigger any action. Available for Windows.">
+    <meta property="og:url" content="https://cleverandconfused.github.io/">
+    <meta property="og:site_name" content="MouseKey">
+    <meta property="og:image" content="images/mousekey-logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MouseKey — Mouse Shortcut Engine for Windows">
+    <meta name="twitter:description" content="Transform your middle mouse button into a powerful shortcut engine. Offline, no account required.">
+    <meta name="twitter:image" content="images/mousekey-logo.png">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "MouseKey",
+        "operatingSystem": "Windows 10, Windows 11",
+        "applicationCategory": "UtilitiesApplication",
+        "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/InStock"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "ratingCount": "3",
+            "bestRating": "5"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "Vaelor"
+        },
+        "description": "MouseKey turns your middle mouse button into a powerful shortcut engine. Assign actions to double, triple, quad, or quint click patterns.",
+        "url": "https://cleverandconfused.github.io/"
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root{--bg-deep:#080F1A;--bg-primary:#0D1B2A;--bg-card:#1B263B;--bg-elevated:#2A3A5F;--accent:#6EC1FF;--accent-glow:rgba(110,193,255,.15);--text-primary:#E0E1DD;--text-secondary:#A8DADC;--text-muted:#7B8FA3;--border:rgba(110,193,255,.08);--success:#4ADE80}
+        *{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+        body{font-family:'DM Sans',sans-serif;background:var(--bg-deep);color:var(--text-primary);line-height:1.6;overflow-x:hidden}
+
+        /* NAV */
+        nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(8,15,26,.82);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+        .nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text-primary)}
+        .nav-brand img{width:32px;height:32px;border-radius:8px}
+        .nav-brand span{font-weight:700;font-size:1.15rem;letter-spacing:-.02em}
+        .nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
+        .nav-links a{color:var(--text-muted);text-decoration:none;font-size:.88rem;font-weight:500;transition:color .2s}
+        .nav-links a:hover{color:var(--text-primary)}
+        .nav-cta{background:var(--accent);color:var(--bg-deep)!important;padding:8px 20px;border-radius:8px;font-weight:600!important;transition:transform .2s,box-shadow .2s!important}
+        .nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(110,193,255,.3)}
+        .mobile-menu-btn{display:none;background:none;border:none;color:var(--text-primary);cursor:pointer;padding:8px}
+
+        /* HERO */
+        .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 2rem 60px;position:relative;overflow:hidden}
+        .hero::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(110,193,255,.06) 0%,transparent 70%);pointer-events:none}
+        .hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;background:var(--accent-glow);border:1px solid rgba(110,193,255,.15);border-radius:100px;font-size:.82rem;color:var(--accent);font-weight:500;margin-bottom:2rem;animation:fadeInUp .6s ease both}
+        .hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--success);animation:pulse 2s infinite}
+        .hero h1{font-size:clamp(2.5rem,6vw,4.2rem);font-weight:700;line-height:1.1;letter-spacing:-.03em;margin-bottom:1.5rem;max-width:720px;animation:fadeInUp .6s .1s ease both}
+        .hero h1 .accent{color:var(--accent)}
+        .hero-sub{font-size:1.15rem;color:var(--text-secondary);max-width:540px;margin-bottom:2.5rem;line-height:1.7;animation:fadeInUp .6s .2s ease both}
+        .hero-actions{display:flex;gap:1rem;align-items:center;flex-wrap:wrap;justify-content:center;animation:fadeInUp .6s .3s ease both}
+        .btn-primary{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;background:var(--accent);color:var(--bg-deep);border:none;border-radius:12px;font-size:1rem;font-weight:600;font-family:inherit;cursor:pointer;text-decoration:none;transition:transform .2s,box-shadow .2s}
+        .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(110,193,255,.3)}
+        .btn-primary svg{width:18px;height:18px}
+        .btn-secondary{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:transparent;color:var(--text-primary);border:1px solid rgba(224,225,221,.15);border-radius:12px;font-size:1rem;font-weight:500;font-family:inherit;cursor:pointer;text-decoration:none;transition:border-color .2s,background .2s}
+        .btn-secondary:hover{border-color:rgba(224,225,221,.3);background:rgba(255,255,255,.03)}
+        .hero-meta{display:flex;gap:2.5rem;margin-top:3rem;animation:fadeInUp .6s .4s ease both}
+        .hero-meta-item{text-align:center}
+        .hero-meta-item .value{font-size:1.1rem;font-weight:600}
+        .hero-meta-item .label{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+
+        /* SCREENSHOT */
+        .app-screenshot-wrap{max-width:880px;margin:0 auto;padding:0 2rem;animation:fadeInUp .6s .5s ease both}
+        .app-screenshot-frame{border-radius:16px;border:1px solid var(--border);overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,.4),0 0 0 1px rgba(110,193,255,.05);background:var(--bg-primary)}
+        .app-screenshot-frame img{width:100%;height:auto;display:block}
+
+        /* SECTIONS */
+        section{padding:100px 2rem}
+        .section-container{max-width:1080px;margin:0 auto}
+        .section-label{font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
+        .section-title{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;letter-spacing:-.025em;line-height:1.15;margin-bottom:1rem;max-width:600px}
+        .section-desc{color:var(--text-secondary);font-size:1.05rem;max-width:560px;line-height:1.7;margin-bottom:3rem}
+
+        /* FEATURES */
+        #features{background:var(--bg-primary)}
+        .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+        .feature-card{background:var(--bg-card);border-radius:16px;padding:32px 28px;border:1px solid var(--border);transition:transform .25s,border-color .25s}
+        .feature-card:hover{transform:translateY(-4px);border-color:rgba(110,193,255,.15)}
+        .feature-icon{width:48px;height:48px;border-radius:12px;background:var(--accent-glow);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;color:var(--accent)}
+        .feature-card h3{font-size:1.05rem;font-weight:600;margin-bottom:.6rem}
+        .feature-card p{color:var(--text-muted);font-size:.9rem;line-height:1.6}
+
+        /* STEPS */
+        .steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:step}
+        .step-card{counter-increment:step;padding:32px 24px;background:var(--bg-card);border-radius:16px;border:1px solid var(--border)}
+        .step-card::before{content:counter(step,decimal-leading-zero);font-family:'JetBrains Mono',monospace;font-size:2.5rem;font-weight:500;color:var(--accent);opacity:.2;display:block;margin-bottom:1rem;line-height:1}
+        .step-card h3{font-size:1rem;font-weight:600;margin-bottom:.5rem}
+        .step-card p{font-size:.88rem;color:var(--text-muted);line-height:1.55}
+
+        /* PATTERNS */
+        #patterns{background:var(--bg-primary)}
+        .patterns-row{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+        .patterns-visual{display:flex;flex-direction:column;gap:16px}
+        .pattern-row{display:flex;align-items:center;gap:16px;padding:18px 22px;background:var(--bg-card);border-radius:14px;border:1px solid var(--border);transition:border-color .2s,transform .2s}
+        .pattern-row:hover{border-color:var(--accent);transform:translateX(4px)}
+        .pattern-clicks{display:flex;gap:4px}
+        .pattern-click-dot{width:10px;height:10px;border-radius:50%;background:var(--accent)}
+        .pattern-click-dot.inactive{background:var(--bg-elevated)}
+        .pattern-label{font-weight:600;font-size:.92rem;min-width:60px}
+        .pattern-arrow{color:var(--text-muted);font-size:.85rem}
+        .pattern-action{font-family:'JetBrains Mono',monospace;font-size:.82rem;background:var(--bg-elevated);padding:4px 12px;border-radius:6px;color:var(--accent)}
+
+        /* REVIEWS */
+        .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+        .review-card{background:var(--bg-card);border-radius:16px;padding:32px 28px;border:1px solid var(--border);display:flex;flex-direction:column}
+        .review-stars{color:#FBBF24;font-size:1rem;margin-bottom:1rem;letter-spacing:2px}
+        .review-title{font-weight:600;font-size:1rem;margin-bottom:.75rem}
+        .review-body{color:var(--text-muted);font-size:.9rem;line-height:1.65;flex-grow:1}
+        .review-meta{margin-top:1.25rem;padding-top:1rem;border-top:1px solid var(--border);font-size:.78rem;color:var(--text-muted)}
+
+        /* PRIVACY */
+        #privacy{background:var(--bg-primary)}
+        .privacy-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+        .privacy-card{background:var(--bg-card);border-radius:14px;padding:28px 24px;border:1px solid var(--border)}
+        .privacy-card h3{font-size:.95rem;font-weight:600;margin-bottom:.5rem;display:flex;align-items:center;gap:8px}
+        .privacy-card h3 .check{color:var(--success)}
+        .privacy-card p{color:var(--text-muted);font-size:.88rem;line-height:1.6}
+        .not-card{margin-top:2rem;padding:20px 24px;background:var(--bg-card);border-radius:14px;border:1px solid var(--border);max-width:680px}
+        .not-card h3{font-size:.92rem;font-weight:600;margin-bottom:.4rem}
+        .not-card p{color:var(--text-muted);font-size:.88rem;line-height:1.7}
+
+        /* IFU */
+        .ifu-content{max-width:720px}
+        .ifu-block{margin-bottom:2rem}
+        .ifu-block h3{font-size:1rem;font-weight:600;margin-bottom:.5rem}
+        .ifu-block p{color:var(--text-muted);font-size:.92rem;line-height:1.7}
+
+        /* FAQ */
+        #faq{background:var(--bg-primary)}
+        .faq-list{max-width:680px}
+        .faq-item{border-bottom:1px solid var(--border)}
+        .faq-question{width:100%;background:none;border:none;color:var(--text-primary);font-family:inherit;font-size:1rem;font-weight:600;text-align:left;padding:20px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+        .faq-question::after{content:'+';font-size:1.4rem;color:var(--accent);transition:transform .2s}
+        .faq-question.open::after{transform:rotate(45deg)}
+        .faq-answer{color:var(--text-muted);font-size:.92rem;line-height:1.7;max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease}
+        .faq-answer.open{max-height:300px;padding-bottom:20px}
+
+        /* CTA */
+        .final-cta{text-align:center;padding:100px 2rem}
+        .final-cta h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;letter-spacing:-.025em;margin-bottom:1rem}
+        .final-cta p{color:var(--text-secondary);font-size:1.05rem;max-width:480px;margin:0 auto 2rem}
+
+        /* FOOTER */
+        footer{background:var(--bg-primary);border-top:1px solid var(--border);padding:48px 2rem}
+        .footer-inner{max-width:1080px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:2rem}
+        .footer-brand{display:flex;align-items:center;gap:8px;margin-bottom:.75rem}
+        .footer-brand img{width:28px;height:28px;border-radius:6px}
+        .footer-brand span{font-weight:700;font-size:1rem}
+        .footer-tagline{color:var(--text-muted);font-size:.82rem;max-width:280px;line-height:1.55}
+        .footer-links-group h4{font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted);margin-bottom:.75rem}
+        .footer-links-group a{display:block;color:var(--text-secondary);font-size:.88rem;text-decoration:none;margin-bottom:.5rem;transition:color .2s}
+        .footer-links-group a:hover{color:var(--text-primary)}
+        .footer-bottom{max-width:1080px;margin:2rem auto 0;padding-top:1.5rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+        .footer-bottom p{font-size:.78rem;color:var(--text-muted)}
+
+        /* ANIMATIONS */
+        @keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+        @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+        .reveal{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+        .reveal.visible{opacity:1;transform:translateY(0)}
+
+        /* RESPONSIVE */
+        @media(max-width:900px){.features-grid{grid-template-columns:repeat(2,1fr)}.steps-grid{grid-template-columns:repeat(2,1fr)}.reviews-grid{grid-template-columns:1fr}.patterns-row{grid-template-columns:1fr;gap:2rem}.privacy-grid{grid-template-columns:1fr}}
+        @media(max-width:640px){.nav-links{display:none}.mobile-menu-btn{display:block}.nav-links.open{display:flex;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:var(--bg-deep);padding:1.5rem 2rem;border-bottom:1px solid var(--border)}.features-grid{grid-template-columns:1fr}.steps-grid{grid-template-columns:1fr}.hero-meta{flex-direction:column;gap:1rem}section{padding:60px 1.25rem}.footer-inner{flex-direction:column}}
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="nav-brand">
+        <img src="images/mousekey-logo.png" alt="MouseKey logo" width="32" height="32">
+        <span>MouseKey</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#privacy">Privacy</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="https://apps.microsoft.com/detail/9PHM28LJDZF5" class="nav-cta" target="_blank" rel="noopener">Get MouseKey</a></li>
+    </ul>
+    <button class="mobile-menu-btn" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Toggle menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+</nav>
+
+<section class="hero" id="top">
+    <div class="hero-badge"><span class="dot"></span> Version 1.0 — Available on Microsoft Store</div>
+    <h1>Turn Your Mouse Into a <span class="accent">Shortcut Engine</span></h1>
+    <p class="hero-sub">MouseKey transforms middle mouse button click patterns into powerful hotkey shortcuts. Double-click, triple-click, or more — each pattern triggers a different action.</p>
+    <div class="hero-actions">
+        <a href="https://apps.microsoft.com/detail/9PHM28LJDZF5" class="btn-primary" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M0 0h11.5v11.5H0zm12.5 0H24v11.5H12.5zM0 12.5h11.5V24H0zm12.5 0H24V24H12.5z"/></svg>
+            Download from Microsoft Store
+        </a>
+        <a href="#how-it-works" class="btn-secondary">See How It Works ↓</a>
+    </div>
+    <div class="hero-meta">
+        <div class="hero-meta-item"><div class="value">★★★★★</div><div class="label">5-Star Reviews</div></div>
+        <div class="hero-meta-item"><div class="value">100% Offline</div><div class="label">No Account Needed</div></div>
+        <div class="hero-meta-item"><div class="value">Win 10 / 11</div><div class="label">Native Desktop App</div></div>
+    </div>
+</section>
+
+<div class="app-screenshot-wrap">
+    <div class="app-screenshot-frame">
+        <img src="images/mousekey-app-screenshot.png" alt="MouseKey application window showing click pattern configuration with Mute, Show Windows, Hide Windows, and Screen Snip assigned to 2, 3, 4, and 5 middle button clicks" width="1097" height="675" loading="lazy">
+    </div>
+</div>
+
+<section id="features">
+    <div class="section-container reveal">
+        <div class="section-label">Features</div>
+        <h2 class="section-title">Simple power. Zero complexity.</h2>
+        <p class="section-desc">MouseKey is designed to be easy to use and not intimidating. It helps you add more hotkeys and functionality to any mouse with a middle button.</p>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4m0 14v4M4.22 4.22l2.83 2.83m9.9 9.9l2.83 2.83M1 12h4m14 0h4M4.22 19.78l2.83-2.83m9.9-9.9l2.83-2.83"/></svg></div>
+                <h3>Click Pattern Shortcuts</h3>
+                <p>Assign different actions to 2, 3, 4, or 5 rapid middle button clicks. Each pattern triggers a unique shortcut.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M8 12h8M12 8v8"/></svg></div>
+                <h3>Custom Hotkey Recording</h3>
+                <p>Record any keyboard shortcut or text string with the built-in "Create Hot Key" recorder. Your macros, your rules.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg></div>
+                <h3>Multiple Profiles</h3>
+                <p>Create and switch between custom profiles to organize your shortcuts for different workflows or applications.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <h3>Fully Offline &amp; Private</h3>
+                <p>No telemetry, no analytics, no account sign-in. Your data stays on your device. Always.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+                <h3>Preset Actions Built-in</h3>
+                <p>Copy, Paste, Undo, Redo, Select All, Mute Audio, Brightness controls, and more — ready to assign instantly.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 9h16M9 4v16"/></svg></div>
+                <h3>System Tray Integration</h3>
+                <p>MouseKey runs quietly in the background. Enable, disable, or open it anytime from the system tray icon.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="how-it-works">
+    <div class="section-container reveal">
+        <div class="section-label">How It Works</div>
+        <h2 class="section-title">Up and running in under a minute.</h2>
+        <p class="section-desc">MouseKey waits briefly after your clicks to confirm the final count, then fires the assigned action. It's as fast as a double-click.</p>
+        <div class="steps-grid">
+            <div class="step-card"><h3>Launch MouseKey</h3><p>Install from the Microsoft Store and open the app. It starts ready to configure.</p></div>
+            <div class="step-card"><h3>Select a Profile</h3><p>Choose the default profile or create a new one for specific workflows.</p></div>
+            <div class="step-card"><h3>Assign Actions</h3><p>Pick from presets or record custom hotkeys for each click pattern (2–5 clicks).</p></div>
+            <div class="step-card"><h3>Click &amp; Go</h3><p>Start using your mouse. Middle-click patterns now trigger your shortcuts instantly.</p></div>
+        </div>
+    </div>
+</section>
+
+<section id="patterns">
+    <div class="section-container reveal">
+        <div class="patterns-row">
+            <div>
+                <div class="section-label">Click Patterns</div>
+                <h2 class="section-title">Four slots. Unlimited possibilities.</h2>
+                <p class="section-desc" style="margin-bottom:1.5rem">Middle button clicks can be pressed 2, 3, 4, or 5 times to trigger different actions. The speed needed is comparable to a typical left-button double-click — fast enough to feel natural, slow enough to be comfortable.</p>
+                <p class="section-desc" style="max-width:480px;font-size:.92rem">You can press them very fast followed by a pause, or somewhat fast followed by a pause. If you click too slowly, no action takes place — so you're always in control.</p>
+            </div>
+            <div class="patterns-visual">
+                <div class="pattern-row"><div class="pattern-clicks"><div class="pattern-click-dot"></div><div class="pattern-click-dot"></div><div class="pattern-click-dot inactive"></div><div class="pattern-click-dot inactive"></div><div class="pattern-click-dot inactive"></div></div><span class="pattern-label">×2</span><span class="pattern-arrow">→</span><span class="pattern-action">Ctrl+C</span></div>
+                <div class="pattern-row"><div class="pattern-clicks"><div class="pattern-click-dot"></div><div class="pattern-click-dot"></div><div class="pattern-click-dot"></div><div class="pattern-click-dot inactive"></div><div class="pattern-click-dot inactive"></div></div><span class="pattern-label">×3</span><span class="pattern-arrow">→</span><span class="pattern-action">Ctrl+V</span></div>
+                <div class="pattern-row"><div class="pattern-clicks"><div class="pattern-click-dot"></div><div class="pattern-click-dot"></div><div class="pattern-click-dot"></div><div class="pattern-click-dot"></div><div class="pattern-click-dot inactive"></div></div><span class="pattern-label">×4</span><span class="pattern-arrow">→</span><span class="pattern-action">Ctrl+Z</span></div>
+                <div class="pattern-row"><div class="pattern-clicks"><div class="pattern-click-dot"></div><div class="pattern-click-dot"></div><div class="pattern-click-dot"></div><div class="pattern-click-dot"></div><div class="pattern-click-dot"></div></div><span class="pattern-label">×5</span><span class="pattern-arrow">→</span><span class="pattern-action">Mute Audio</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="reviews">
+    <div class="section-container reveal">
+        <div class="section-label">Reviews</div>
+        <h2 class="section-title">Loved by real users.</h2>
+        <p class="section-desc">All 5-star reviews from the Microsoft Store — from people who use MouseKey every day.</p>
+        <div class="reviews-grid">
+            <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-title">"Simple and effective"</div><div class="review-body">I love this app is easy to use and not intimidating. It helps me add more hotkeys and functionality to my simple mouse.</div><div class="review-meta">🇺🇸 United States · PC</div></div>
+            <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-title">"Great!"</div><div class="review-body">It's a very useful tool, simple, fast… and also funny! Complete and the possibility to create custom profiles is a good idea to save time and keep things organized.</div><div class="review-meta">🇮🇹 Italy · PC</div></div>
+            <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-title">"Saved my Ctrl+C &amp; V keys"</div><div class="review-body">After a little bit of training exercise (just few minutes) the two and three clicks have been done automatically. A nice option are the custom keys — put a text string or mute your audio output. A really nice tool. Top.</div><div class="review-meta">🇩🇪 Germany · PC</div></div>
+        </div>
+    </div>
+</section>
+
+<section id="privacy">
+    <div class="section-container reveal">
+        <div class="section-label">Privacy &amp; Trust</div>
+        <h2 class="section-title">Your data never leaves your device.</h2>
+        <p class="section-desc">MouseKey operates entirely offline and does not require an account. We believe privacy shouldn't be a premium feature.</p>
+        <div class="privacy-grid">
+            <div class="privacy-card"><h3><span class="check">✓</span> No Data Collection</h3><p>MouseKey does not collect, transmit, sell, or share personal data. No telemetry, no analytics, no advertising identifiers.</p></div>
+            <div class="privacy-card"><h3><span class="check">✓</span> No Network Access</h3><p>MouseKey does not require network access to function. Zero background network communication at any time.</p></div>
+            <div class="privacy-card"><h3><span class="check">✓</span> Local-Only Input Handling</h3><p>Keyboard input is recorded only when you explicitly use "Create Hot Key." MouseKey does not continuously log or monitor what you type.</p></div>
+            <div class="privacy-card"><h3><span class="check">✓</span> Local Configuration Storage</h3><p>Settings are stored locally under your Windows user profile. Profile selections, enabled states, and custom hotkey definitions never leave the device.</p></div>
+        </div>
+        <div class="not-card">
+            <h3>MouseKey is not:</h3>
+            <p>A keylogger, a cloud service, a remote access tool, a security or monitoring product, or a mouse button remapping utility. It is a transparent, user-controlled productivity enhancement tool.</p>
+        </div>
+    </div>
+</section>
+
+<section id="instructions">
+    <div class="section-container reveal">
+        <div class="section-label">Instructions for Use</div>
+        <h2 class="section-title">Getting started with MouseKey</h2>
+        <div class="ifu-content">
+            <div class="ifu-block"><h3>Basic Operation</h3><p>Launch MouseKey, select a Profile, and assign an action from the dropdown for each click pattern (2, 3, 4, or 5 quick middle button clicks). Use the Enabled checkbox to turn each click pattern on or off. MouseKey waits briefly after your clicks to confirm the final count before executing the selected action.</p></div>
+            <div class="ifu-block"><h3>Creating a Custom Hotkey or Macro</h3><p>Select "Create Hot Key…" from any dropdown to record keyboard shortcuts (like Ctrl+C or Alt+Tab) or text strings to be replayed later. Once saved, the custom action becomes available within the current profile.</p></div>
+            <div class="ifu-block"><h3>Turning MouseKey ON or OFF</h3><p>MouseKey has a master enable/disable state which can be activated from the main window or by holding the middle mouse button for 3 seconds. When disabled, middle mouse click behavior returns to normal. Re-enable at any time from the system tray icon menu.</p></div>
+            <div class="ifu-block"><h3>System Tray &amp; Background</h3><p>MouseKey continues running when the main window is closed. The tray icon may be under the Windows "hidden icons" arrow. Right-click the icon to open the app, enable or disable MouseKey, or exit completely. Settings are automatically saved and restored on next launch.</p></div>
+            <div class="ifu-block"><h3>Security Best Practice</h3><p>When creating custom hotkeys or macros, do not record passwords, PINs, authentication codes, recovery keys, or other sensitive information. Recorded macros replay input exactly as captured. MouseKey does not analyze, transmit, or share recorded input.</p></div>
+        </div>
+    </div>
+</section>
+
+<section id="faq">
+    <div class="section-container reveal">
+        <div class="section-label">FAQ</div>
+        <h2 class="section-title">Common questions</h2>
+        <div class="faq-list">
+            <div class="faq-item"><button class="faq-question" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">Does MouseKey work with any mouse?</button><div class="faq-answer">MouseKey works with any mouse that has a clickable middle button (scroll wheel click). It doesn't require any specific brand or model — just a standard middle mouse button.</div></div>
+            <div class="faq-item"><button class="faq-question" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">Will MouseKey interfere with my normal middle-click?</button><div class="faq-answer">When MouseKey is enabled, middle mouse button clicks are intercepted to count click patterns. When MouseKey is disabled (via the app or by holding the middle button for 3 seconds), middle mouse clicks return to normal function.</div></div>
+            <div class="faq-item"><button class="faq-question" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">What Windows versions are supported?</button><div class="faq-answer">MouseKey supports Windows 10 (version 1903 and later) and Windows 11. It is a native desktop application built with WPF and .NET 8.</div></div>
+            <div class="faq-item"><button class="faq-question" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">Does MouseKey send any data to the internet?</button><div class="faq-answer">No. MouseKey operates entirely offline with zero network communication. No telemetry, no analytics, no account required. Your configuration is stored locally on your device only.</div></div>
+            <div class="faq-item"><button class="faq-question" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">Can I use MouseKey on a work computer?</button><div class="faq-answer">MouseKey uses documented Windows APIs to detect mouse input and simulate keyboard input. On managed corporate or school devices, security software may restrict these capabilities. Check your organization's policies regarding automation tools before installing.</div></div>
+        </div>
+    </div>
+</section>
+
+<section class="final-cta">
+    <div class="section-container reveal">
+        <h2>Ready to supercharge your mouse?</h2>
+        <p>Private, lightweight, and ready in under a minute. Get MouseKey from the Microsoft Store.</p>
+        <a href="https://apps.microsoft.com/detail/9PHM28LJDZF5" class="btn-primary" target="_blank" rel="noopener" style="display:inline-flex">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0h11.5v11.5H0zm12.5 0H24v11.5H12.5zM0 12.5h11.5V24H0zm12.5 0H24V24H12.5z"/></svg>
+            Get MouseKey on Microsoft Store
+        </a>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-inner">
+        <div>
+            <div class="footer-brand"><img src="images/mousekey-logo.png" alt="MouseKey" width="28" height="28"><span>MouseKey</span></div>
+            <p class="footer-tagline">A mouse performance booster by Vaelor. Turning your middle mouse button into a powerful shortcut engine for Windows.</p>
+        </div>
+        <div class="footer-links-group"><h4>Product</h4><a href="#features">Features</a><a href="#how-it-works">How It Works</a><a href="#reviews">Reviews</a><a href="https://apps.microsoft.com/detail/9PHM28LJDZF5" target="_blank" rel="noopener">Microsoft Store</a></div>
+        <div class="footer-links-group"><h4>Resources</h4><a href="#instructions">Instructions for Use</a><a href="#privacy">Privacy Policy</a><a href="#faq">FAQ</a><a href="blog.html">Blog</a></div>
+        <div class="footer-links-group"><h4>Contact</h4><a href="mailto:MSKey093@gmail.com">MSKey093@gmail.com</a></div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2025 Vaelor. MouseKey is an independent product, not affiliated with or endorsed by Microsoft Corporation. Windows is a trademark of Microsoft Corp.</p></div>
+</footer>
+
+<script>
+    const revealEls=document.querySelectorAll('.reveal');
+    const reveal=()=>{revealEls.forEach(el=>{if(el.getBoundingClientRect().top<window.innerHeight-80)el.classList.add('visible')})};
+    window.addEventListener('scroll',reveal);window.addEventListener('load',reveal);
+    document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open')));
+</script>
+</body>
+</html>
