@@ -100,7 +100,6 @@
         <div class="review-card">
             <div class="review-form" id="reviewForm">
 
-                <!-- Star Rating -->
                 <div class="star-section">
                     <div class="star-label">Rating</div>
                     <div class="stars-wrap" id="starsWrap">
@@ -114,19 +113,16 @@
                     <div class="field-error" id="starError">Please select a rating</div>
                 </div>
 
-                <!-- Title -->
                 <div class="field">
                     <label for="reviewTitle">Review Title</label>
                     <input type="text" id="reviewTitle" placeholder="Summarize your experience" maxlength="100">
                 </div>
 
-                <!-- Body -->
                 <div class="field">
                     <label for="reviewBody">Your Review</label>
                     <textarea id="reviewBody" placeholder="Tell us what you liked, what could be better, or how you use MouseKey..." maxlength="2000"></textarea>
                 </div>
 
-                <!-- Country & Device -->
                 <div class="field-row">
                     <div class="field">
                         <label for="reviewCountry">Country / Region</label>
@@ -163,7 +159,6 @@
                     </div>
                 </div>
 
-                <!-- Discovery source -->
                 <div class="field">
                     <label for="reviewSource">How did you discover MouseKey? <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--text-muted)">(optional)</span></label>
                     <select id="reviewSource" onchange="toggleOther()">
@@ -177,7 +172,6 @@
                     <input type="text" id="reviewSourceOther" placeholder="Please specify..." maxlength="100" style="display:none;margin-top:10px">
                 </div>
 
-                <!-- Display name -->
                 <div class="field">
                     <label for="reviewName">Display Name <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--text-muted)">(optional)</span></label>
                     <input type="text" id="reviewName" placeholder="How you'd like to be credited" maxlength="60">
@@ -205,7 +199,6 @@
             <a href="index.html">Home</a>
             <a href="index.html#privacy">Privacy</a>
             <a href="blog.html">Blog</a>
-            <a href="mailto:MSKey093&#64;gmail.com">Contact</a>
         </div>
         <div class="footer-copy">&copy; 2025 Vaelor. MouseKey is an independent product, not affiliated with or endorsed by Microsoft Corporation.</div>
     </div>
@@ -272,31 +265,37 @@
         var starStr='';
         for(var s=0;s<5;s++) starStr+=s<rating?'\u2605':'\u2606';
 
-        var subj='MouseKey Review: '+starStr+(title?' - '+title:'');
-        var lines=[
-            'Rating: '+starStr+' ('+rating+'/5)',
-            '',
-            'Title: '+(title||'(none)'),
-            '',
-            'Review:',
-            body||'(no review text)',
-            '',
-            'Country: '+(country||'(not specified)'),
-            'Device: '+(device||'(not specified)'),
-            'Discovered via: '+(source||'(not specified)'),
-            'Name: '+(name||'Anonymous'),
-            '',
-            '---',
-            'Submitted from MouseKey review page'
-        ].join('\n');
+        /* =====================================================
+           REPLACE THE URL BELOW WITH YOUR GOOGLE APPS SCRIPT URL
+           (See setup instructions in the README)
+           ===================================================== */
+        var SHEET_URL='YOUR_GOOGLE_SCRIPT_URL_HERE';
 
-        var addr='MSKey093'+'@'+'gmail.com';
-        window.location.href='mailto:'+addr+'?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(lines);
+        var payload={
+            rating:rating,
+            stars:starStr,
+            title:title||'',
+            review:body||'',
+            country:country||'',
+            device:device||'',
+            source:source||'',
+            name:name||'Anonymous',
+            timestamp:new Date().toISOString()
+        };
 
-        setTimeout(function(){
+        fetch(SHEET_URL,{
+            method:'POST',
+            mode:'no-cors',
+            headers:{'Content-Type':'application/json'},
+            body:JSON.stringify(payload)
+        }).then(function(){
             document.getElementById('reviewForm').classList.add('hidden');
             document.getElementById('successMsg').classList.add('show');
-        },800);
+        }).catch(function(){
+            btn.disabled=false;
+            btn.textContent='Submit';
+            alert('Something went wrong. Please try again.');
+        });
     });
 })();
 </script>
