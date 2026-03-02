@@ -204,6 +204,9 @@
     </div>
 </footer>
 
+<!-- Hidden iframe for form submission -->
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none"></iframe>
+
 <script>
 (function(){
     var labels = ['','Terrible','Poor','Average','Good','Excellent'];
@@ -267,11 +270,18 @@
 
         /* =====================================================
            REPLACE THE URL BELOW WITH YOUR GOOGLE APPS SCRIPT URL
-           (See setup instructions in the README)
            ===================================================== */
         var SHEET_URL='YOUR_GOOGLE_SCRIPT_URL_HERE';
 
-        var payload={
+        // Build a real HTML form and submit it to a hidden iframe
+        var form=document.createElement('form');
+        form.method='POST';
+        form.action=SHEET_URL;
+        form.target='hidden_iframe';
+        form.style.display='none';
+
+        var fields={
+            timestamp:new Date().toISOString(),
             rating:rating,
             stars:starStr,
             title:title||'',
@@ -279,23 +289,26 @@
             country:country||'',
             device:device||'',
             source:source||'',
-            name:name||'Anonymous',
-            timestamp:new Date().toISOString()
+            name:name||'Anonymous'
         };
 
-        fetch(SHEET_URL,{
-            method:'POST',
-            mode:'no-cors',
-            headers:{'Content-Type':'application/x-www-form-urlencoded'},
-            body:new URLSearchParams(payload).toString()
-        }).then(function(){
+        for(var key in fields){
+            var input=document.createElement('input');
+            input.type='hidden';
+            input.name=key;
+            input.value=fields[key];
+            form.appendChild(input);
+        }
+
+        document.body.appendChild(form);
+        form.submit();
+        document.body.removeChild(form);
+
+        // Show success after brief delay
+        setTimeout(function(){
             document.getElementById('reviewForm').classList.add('hidden');
             document.getElementById('successMsg').classList.add('show');
-        }).catch(function(){
-            btn.disabled=false;
-            btn.textContent='Submit';
-            alert('Something went wrong. Please try again.');
-        });
+        },1000);
     });
 })();
 </script>
