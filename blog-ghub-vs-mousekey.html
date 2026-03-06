@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MouseKey vs Logitech G Hub: A Simpler Alternative for Mouse Remapping | MouseKey Blog</title>
+    <meta name="description" content="Comparing MouseKey and Logitech G Hub for mouse remapping, macro recording, and button configuration. MouseKey works with any mouse, offers a built-in hotkey recorder, and skips the complexity of G Hub.">
+    <meta name="keywords" content="G Hub alternative, G Hub, GHub, Logitech G Hub, Logitech mouse software, mouse remapping, mouse remapping software, G Hub vs MouseKey, G Hub replacement, macro recorder, hotkey recorder, recording macros, record keyboard shortcut, mouse button remapper, Logitech alternative, programmable mouse software, MouseKey, click cadence, Windows mouse software">
+    <meta name="author" content="Vaelor">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://cleverandconfused.github.io/blog-ghub-vs-mousekey.html">
+    <link rel="icon" type="image/png" href="mousekey-logo.png">
+    <meta name="theme-color" content="#0D1B2A">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="MouseKey">
+    <meta property="og:title" content="MouseKey vs Logitech G Hub: A Simpler Alternative for Mouse Remapping">
+    <meta property="og:description" content="Tired of G Hub? MouseKey offers mouse remapping, macro recording, and click cadence actions for any mouse — without the complexity.">
+    <meta property="og:url" content="https://cleverandconfused.github.io/blog-ghub-vs-mousekey.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MouseKey vs Logitech G Hub: A Simpler Mouse Remapping Alternative">
+    <meta name="twitter:description" content="MouseKey replaces G Hub for mouse remapping and macro recording. Works with any mouse. No account, no drivers, no complexity.">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "MouseKey vs Logitech G Hub: A Simpler Alternative for Mouse Remapping",
+        "datePublished": "2026-03-06",
+        "author": {"@type": "Organization", "name": "MouseKey", "url": "https://cleverandconfused.github.io/"},
+        "publisher": {"@type": "Organization", "name": "Vaelor"},
+        "about": ["G Hub", "Logitech", "mouse remapping", "macro recorder", "MouseKey", "mouse software comparison"],
+        "mainEntityOfPage": "https://cleverandconfused.github.io/blog-ghub-vs-mousekey.html"
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+
+    <style>
+        :root{--bg-deep:#080F1A;--bg-primary:#0D1B2A;--bg-card:#1B263B;--bg-elevated:#2A3A5F;--accent:#6EC1FF;--accent-glow:rgba(110,193,255,.15);--text-primary:#E0E1DD;--text-secondary:#A8DADC;--text-muted:#7B8FA3;--border:rgba(110,193,255,.08);--success:#4ADE80}
+        *{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+        body{font-family:'DM Sans',sans-serif;background:var(--bg-deep);color:var(--text-primary);line-height:1.6;overflow-x:hidden}
+        nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(8,15,26,.82);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+        .nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text-primary)}
+        .nav-brand img{width:32px;height:32px;border-radius:8px}
+        .nav-brand span{font-weight:700;font-size:1.15rem;letter-spacing:-.02em}
+        .nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
+        .nav-links a{color:var(--text-muted);text-decoration:none;font-size:.88rem;font-weight:500;transition:color .2s}
+        .nav-links a:hover{color:var(--text-primary)}
+        .nav-cta{background:var(--accent);color:var(--bg-deep)!important;padding:8px 20px;border-radius:8px;font-weight:600!important;transition:transform .2s,box-shadow .2s!important}
+        .nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(110,193,255,.3)}
+        .mobile-menu-btn{display:none;background:none;border:none;color:var(--text-primary);cursor:pointer;padding:8px}
+        .blog-hero{padding:120px 2rem 40px;max-width:780px;margin:0 auto}
+        .blog-breadcrumb{font-size:.82rem;color:var(--text-muted);margin-bottom:1.5rem}
+        .blog-breadcrumb a{color:var(--accent);text-decoration:none}
+        .blog-breadcrumb a:hover{text-decoration:underline}
+        .blog-meta{display:flex;align-items:center;gap:14px;font-size:.85rem;color:var(--text-muted);margin-bottom:1.5rem;flex-wrap:wrap}
+        .blog-tag{display:inline-flex;padding:3px 10px;background:var(--accent-glow);border:1px solid rgba(110,193,255,.12);border-radius:100px;font-size:.72rem;color:var(--accent);font-weight:500}
+        .blog-hero h1{font-size:clamp(1.8rem,4vw,2.4rem);font-weight:700;line-height:1.12;letter-spacing:-.025em;margin-bottom:1rem}
+        .blog-hero .lead{color:var(--text-secondary);font-size:1.1rem;line-height:1.7}
+        .blog-article{max-width:780px;margin:0 auto;padding:0 2rem 80px}
+        .blog-article h2{font-size:1.3rem;font-weight:700;margin:2.5rem 0 .75rem;letter-spacing:-.015em}
+        .blog-article h3{font-size:1.05rem;font-weight:600;margin:1.5rem 0 .5rem}
+        .blog-article p{color:var(--text-secondary);font-size:1rem;line-height:1.8;margin-bottom:1.25rem}
+        .blog-article p strong{color:var(--text-primary)}
+        .blog-article ul{color:var(--text-secondary);margin:0 0 1.5rem 1.25rem;font-size:1rem;line-height:1.8}
+        .blog-article li{margin-bottom:.5rem}
+        .blog-article li strong{color:var(--text-primary)}
+        .blog-article a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(110,193,255,.25);transition:border-color .2s}
+        .blog-article a.btn-primary{color:var(--bg-deep);border-bottom:none}
+        .blog-article a:hover{border-color:var(--accent)}
+        .callout{margin:1.5rem 0;padding:20px 24px;background:var(--bg-card);border-radius:14px;border:1px solid var(--border);border-left:3px solid var(--accent)}
+        .callout p{margin-bottom:0!important;color:var(--text-secondary)}
+        .callout strong{color:var(--text-primary)}
+        .compare-tbl{width:100%;border-collapse:collapse;margin:1.5rem 0 2rem;font-size:.9rem}
+        .compare-tbl th,.compare-tbl td{padding:12px 16px;text-align:left;border-bottom:1px solid var(--border)}
+        .compare-tbl th{color:var(--text-muted);font-weight:600;font-size:.78rem;text-transform:uppercase;letter-spacing:.06em}
+        .compare-tbl td:first-child{color:var(--text-secondary);font-weight:500}
+        .compare-tbl .yes{color:var(--success);font-weight:600}
+        .compare-tbl .no{color:var(--text-muted)}
+        .compare-tbl tr:last-child td{border-bottom:none}
+        .blog-img{margin:2rem 0;border-radius:14px;overflow:hidden;border:1px solid var(--border);box-shadow:0 20px 50px rgba(0,0,0,.3)}
+        .blog-img img{width:100%;height:auto;display:block}
+        .blog-img-cap{padding:12px 18px;font-size:.82rem;color:var(--text-muted);background:var(--bg-card);border-top:1px solid var(--border)}
+        .blog-cta{margin:3rem 0;padding:32px;background:var(--bg-card);border-radius:16px;border:1px solid var(--border);text-align:center}
+        .blog-cta h3{font-size:1.15rem;font-weight:700;margin-bottom:.5rem}
+        .blog-cta p{color:var(--text-muted);font-size:.92rem;margin-bottom:1.25rem}
+        .btn-primary{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;background:var(--accent);color:var(--bg-deep);border:none;border-radius:12px;font-size:1rem;font-weight:700;font-family:inherit;cursor:pointer;text-decoration:none;transition:transform .2s,box-shadow .2s}
+        .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(110,193,255,.3)}
+        footer{background:var(--bg-primary);border-top:1px solid var(--border);padding:36px 2rem}
+        .footer-inner{max-width:780px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+        .footer-left{display:flex;align-items:center;gap:10px}
+        .footer-left img{width:24px;height:24px;border-radius:6px}
+        .footer-left span{font-weight:600;font-size:.88rem}
+        .footer-links{display:flex;gap:1.5rem}
+        .footer-links a{color:var(--text-muted);font-size:.82rem;text-decoration:none;transition:color .2s}
+        .footer-links a:hover{color:var(--text-primary)}
+        .footer-copy{width:100%;text-align:center;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);font-size:.75rem;color:var(--text-muted)}
+        @media(max-width:640px){.nav-links{display:none}.mobile-menu-btn{display:block}.nav-links.open{display:flex;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:var(--bg-deep);padding:1.5rem 2rem;border-bottom:1px solid var(--border)}.blog-hero{padding:100px 1.25rem 30px}.blog-article{padding:0 1.25rem 60px}.compare-tbl{font-size:.82rem}.compare-tbl th,.compare-tbl td{padding:10px 10px}.footer-inner{flex-direction:column;text-align:center}.footer-links{justify-content:center}}
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="nav-brand"><img src="mousekey-logo.png" alt="MouseKey logo" width="32" height="32"><span>MouseKey</span></a>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#features">Features</a></li>
+        <li><a href="index.html#compare">Compare</a></li>
+        <li><a href="index.html#privacy">Privacy</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="https://apps.microsoft.com/detail/9PHM28LJDZF5" class="nav-cta" target="_blank" rel="noopener">Get MouseKey</a></li>
+    </ul>
+    <button class="mobile-menu-btn" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Toggle menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
+</nav>
+
+<header class="blog-hero">
+    <div class="blog-breadcrumb"><a href="index.html">MouseKey</a> / <a href="blog.html">Blog</a></div>
+    <div class="blog-meta">
+        <span>March 6, 2026</span>
+        <span class="blog-tag">G Hub</span>
+        <span class="blog-tag">Comparison</span>
+        <span class="blog-tag">Mouse Remapping</span>
+    </div>
+    <h1>MouseKey vs Logitech G Hub: A Simpler, More Flexible Alternative for Mouse Remapping</h1>
+    <p class="lead">Logitech G Hub is the default software for configuring Logitech mice. But if all you need is fast, reliable mouse remapping with a built-in macro recorder — without the complexity — MouseKey might be exactly what you're looking for.</p>
+</header>
+
+<article class="blog-article">
+
+    <h2>What Logitech G Hub does</h2>
+    <p>G Hub is Logitech's all-in-one configuration tool for their gaming peripherals. It handles mouse remapping, DPI adjustment, RGB lighting control, macro recording, profile management, and firmware updates for Logitech mice, keyboards, headsets, and webcams. It's a powerful piece of software — when it works.</p>
+    <p>The problem is that G Hub tries to do everything for every Logitech device. For users who just want reliable <strong>mouse remapping</strong> and a simple way to record macros, that's a lot of overhead. And it only works with <strong>Logitech hardware</strong>.</p>
+
+    <h2>Where G Hub falls short</h2>
+    <p>G Hub has a well-documented reputation for stability problems. Users regularly report that GHub crashes on startup, fails to detect devices after waking from sleep, loses profile settings after updates, and consumes significant CPU and memory in the background. A quick search turns up years of forum posts about G Hub not loading, freezing, or conflicting with games.</p>
+    <p>Beyond stability, there are some fundamental limitations to how G Hub handles <strong>mouse remapping</strong>:</p>
+    <ul>
+        <li><strong>Logitech-only:</strong> G Hub only works with Logitech mice. If you switch brands or use a second mouse from a different manufacturer, your remapping configuration doesn't follow.</li>
+        <li><strong>No click cadence actions:</strong> G Hub lets you remap buttons one-to-one — one button, one action. There's no way to assign multiple distinct actions to the same button based on click patterns.</li>
+        <li><strong>Heavy installer:</strong> G Hub requires a large download, installs background services, and often demands a Logitech account for cloud sync features most users don't need.</li>
+        <li><strong>Complicated UI for simple tasks:</strong> The interface is designed around DPI curves, LIGHTSYNC effects, and device ecosystems. If you just want to remap a side button to Ctrl+Z, you have to navigate through layers of UI that don't apply to you.</li>
+    </ul>
+
+    <h2>What MouseKey does differently</h2>
+    <p>MouseKey is built for one thing: making any mouse button do more. It's a dedicated <strong>mouse remapping</strong> tool with a built-in hotkey <strong>recorder</strong> that works with every mouse brand on Windows.</p>
+
+    <h3>MouseKey works with any mouse</h3>
+    <p>MouseKey operates at the system level, intercepting mouse input regardless of brand, model, or driver. Logitech, Razer, Corsair, SteelSeries, a $10 office mouse — MouseKey doesn't care. If your mouse has buttons, MouseKey can remap them. This is the biggest functional difference from G Hub, which is locked to Logitech hardware.</p>
+
+    <h3>MouseKey gives you 5 actions per button</h3>
+    <p>This is something G Hub simply cannot do. MouseKey's click cadence system assigns a different action to 1, 2, 3, 4, and 5 rapid clicks on any single button. That means a standard three-button mouse gives you <strong>up to 15 programmable shortcuts</strong> — all from buttons that G Hub would treat as single-action only.</p>
+
+    <h3>MouseKey has a built-in hotkey recorder</h3>
+    <p>MouseKey includes a simple macro <strong>recorder</strong> called "Create Hot Key." Select it from any action dropdown, and MouseKey starts <strong>recording</strong> your keyboard input. Press any shortcut — Ctrl+C, Alt+Tab, Win+D, or any combination — and MouseKey captures it as a replayable action. You can also record text strings that get typed out when triggered. The <strong>recording</strong> process takes seconds, and the recorded macro is saved directly to your profile.</p>
+    <p>G Hub also has a macro <strong>recorder</strong>, but it's buried inside a more complex interface alongside DPI settings, lighting configuration, and device-specific menus. For users who just want to record a keyboard shortcut and assign it to a mouse button, MouseKey's <strong>recorder</strong> is faster and more direct.</p>
+
+    <div class="blog-img">
+        <img src="mousekey-select-action.png" alt="MouseKey action dropdown showing preset actions and Create Hot Key recorder option" loading="lazy">
+        <div class="blog-img-cap">MouseKey's action menu: pick a preset or use the built-in recorder to capture any keyboard shortcut.</div>
+    </div>
+
+    <h2>Feature comparison: MouseKey vs Logitech G Hub</h2>
+    <p>Here's how MouseKey and G Hub compare on the features that matter most for <strong>mouse remapping</strong>:</p>
+
+    <table class="compare-tbl">
+        <thead><tr><th>Feature</th><th>MouseKey</th><th>Logitech G Hub</th></tr></thead>
+        <tbody>
+            <tr><td>Works with any mouse brand</td><td class="yes">&#10003; Any mouse</td><td class="no">&#10007; Logitech only</td></tr>
+            <tr><td>Mouse button remapping</td><td class="yes">&#10003; Any button</td><td class="yes">&#10003; Logitech buttons</td></tr>
+            <tr><td>Multi-action click cadences</td><td class="yes">&#10003; Up to 5 per button</td><td class="no">&#10007; Not available</td></tr>
+            <tr><td>Macro / hotkey recorder</td><td class="yes">&#10003; Built-in recorder</td><td class="yes">&#10003; Built-in recorder</td></tr>
+            <tr><td>Text string recording</td><td class="yes">&#10003; Yes</td><td class="no">&#10007; No</td></tr>
+            <tr><td>Profiles</td><td class="yes">&#10003; Multiple profiles</td><td class="yes">&#10003; Per-app profiles</td></tr>
+            <tr><td>DPI / sensitivity control</td><td class="no">&#10007; Not included</td><td class="yes">&#10003; Yes</td></tr>
+            <tr><td>RGB lighting control</td><td class="no">&#10007; Not included</td><td class="yes">&#10003; Yes</td></tr>
+            <tr><td>Setup time</td><td class="yes">Under 1 minute</td><td class="no">5–15 minutes</td></tr>
+            <tr><td>Account required</td><td class="yes">&#10003; No account</td><td class="no">&#10007; Logitech account</td></tr>
+            <tr><td>Works offline</td><td class="yes">&#10003; 100% offline</td><td class="yes">&#10003; After setup</td></tr>
+            <tr><td>Telemetry / analytics</td><td class="yes">&#10003; Zero</td><td class="no">&#10007; Sends data</td></tr>
+            <tr><td>System resource usage</td><td class="yes">Minimal</td><td class="no">Heavy</td></tr>
+            <tr><td>Known stability issues</td><td class="yes">&#10003; Stable</td><td class="no">&#10007; Widely reported</td></tr>
+        </tbody>
+    </table>
+
+    <div class="callout">
+        <p><strong>Note:</strong> G Hub offers features MouseKey doesn't — like DPI adjustment and RGB lighting. If you need those features specifically for Logitech hardware, G Hub is the right tool. MouseKey is focused entirely on mouse remapping, macro recording, and click cadence actions.</p>
+    </div>
+
+    <h2>Who should consider switching from G Hub to MouseKey</h2>
+    <p>MouseKey isn't trying to replace every feature in G Hub. It's a better fit if you fall into one of these categories:</p>
+    <ul>
+        <li><strong>You don't use a Logitech mouse</strong> — MouseKey works with any brand, so you get the same mouse remapping and recording capabilities regardless of hardware.</li>
+        <li><strong>You use multiple mouse brands</strong> — instead of running G Hub for your Logitech and Synapse for your Razer, MouseKey handles all of them in one lightweight app.</li>
+        <li><strong>You're frustrated with G Hub crashes</strong> — MouseKey is a single, lightweight application with no background services, no cloud sync, and no history of update-breaking stability issues.</li>
+        <li><strong>You want more actions per button</strong> — G Hub caps you at one action per button. MouseKey's click cadence system gives you up to five, which is a significant upgrade for power users.</li>
+        <li><strong>You just want to record a macro and move on</strong> — MouseKey's recorder is two clicks away. Select "Create Hot Key," press your shortcut, done. No navigating through DPI tabs and lighting menus first.</li>
+    </ul>
+
+    <h2>How to set up MouseKey as your mouse remapping tool</h2>
+    <p>Getting started with MouseKey takes under a minute:</p>
+    <ul>
+        <li><strong>Install from the Microsoft Store</strong> — search "MouseKey" or use the direct link below.</li>
+        <li><strong>Add button slots</strong> — click the + button in MouseKey to add a new slot. Select any mouse button from the dropdown.</li>
+        <li><strong>Assign actions</strong> — choose from built-in presets (Copy, Paste, Undo, Mute, Screen Snip, etc.) or select "Create Hot Key" to open the recorder and capture any keyboard shortcut or text string.</li>
+        <li><strong>Set click cadences</strong> — choose how many clicks trigger each action (1 through 5). Multiple slots on the same button with different cadence numbers gives you up to 5 distinct actions.</li>
+    </ul>
+    <p>MouseKey runs in the system tray and uses minimal resources. There's no account to create, no cloud to sync with, and no recurring updates that break your configuration.</p>
+
+    <div class="blog-img">
+        <img src="mousekey-select-button.png" alt="MouseKey button selection showing Middle, Tilt Left, Tilt Right, Back, Forward, Scroll, and custom buttons" loading="lazy">
+        <div class="blog-img-cap">MouseKey detects any mouse button — including custom and extended buttons that G Hub may not recognize.</div>
+    </div>
+
+    <h2>The bottom line</h2>
+    <p>Logitech G Hub is a full-featured peripheral suite — and for users who need DPI tuning, RGB lighting, and firmware management specifically for Logitech devices, it serves its purpose. But for anyone who primarily needs <strong>mouse remapping</strong>, a fast <strong>macro recorder</strong>, and the flexibility to work with any mouse brand, MouseKey is a simpler, more stable, and more capable tool.</p>
+    <p>MouseKey gives you features G Hub doesn't have (click cadence actions, any-brand support, text string recording) while skipping the features most remapping users don't need (DPI curves, lighting, cloud profiles). The result is a tool that does less — but does what matters better.</p>
+
+    <div class="blog-cta">
+        <h3>Try MouseKey as your G Hub alternative</h3>
+        <p>Mouse remapping for any mouse. Built-in hotkey recorder. Up to 5 actions per button. Set up in under a minute.</p>
+        <a href="https://apps.microsoft.com/detail/9PHM28LJDZF5" class="btn-primary" target="_blank" rel="noopener">⊞ Get MouseKey on Microsoft Store</a>
+    </div>
+
+</article>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-left"><img src="mousekey-logo.png" alt="MouseKey" width="24" height="24"><span>MouseKey</span></div>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#privacy">Privacy</a>
+            <a href="blog.html">Blog</a>
+            <a href="mailto:MSKey093&#64;gmail.com">Contact</a>
+        </div>
+        <div class="footer-copy">&copy; 2025 Vaelor. MouseKey is an independent product, not affiliated with or endorsed by Microsoft Corporation. Logitech and G Hub are trademarks of Logitech International S.A.</div>
+    </div>
+</footer>
+
+<script>document.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('navLinks').classList.remove('open')})});</script>
+</body>
+</html>
