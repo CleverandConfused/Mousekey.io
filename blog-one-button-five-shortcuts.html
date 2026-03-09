@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turn One Mouse Button Into 5 Shortcuts With Click Cadences | MouseKey Blog</title>
+    <meta name="description" content="Learn how MouseKey's click cadence system turns a single mouse button into 5 programmable shortcuts. Single click, double click, triple click — each fires a different action. A simpler alternative to X-Mouse Button Control for Windows gaming and productivity.">
+    <meta name="keywords" content="mouse button shortcuts, click cadence, single click shortcut, double click shortcut, triple click shortcut, mouse remapping, programmable mouse button, mouse macro, X-Mouse Button Control, X-Mouse alternative, XMBC, mouse shortcut software, gaming mouse shortcuts, Valorant mouse setup, Counter-Strike mouse config, Fortnite mouse keybinds, Windows mouse tool, MouseKey, hotkey recorder, mouse button remapper, productivity mouse, office mouse shortcuts, custom mouse actions, multi-action mouse button">
+    <meta name="author" content="Vaelor">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://cleverandconfused.github.io/blog-one-button-five-shortcuts.html">
+    <link rel="icon" type="image/png" href="mousekey-logo.png">
+    <meta name="theme-color" content="#0D1B2A">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="MouseKey">
+    <meta property="og:title" content="Turn One Mouse Button Into 5 Shortcuts With Click Cadences">
+    <meta property="og:description" content="MouseKey's click cadence system gives you 5 different actions from one button. Single click, double click, triple click — each triggers a different shortcut.">
+    <meta property="og:url" content="https://cleverandconfused.github.io/blog-one-button-five-shortcuts.html">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Turn One Mouse Button Into 5 Shortcuts With Click Cadences",
+        "datePublished": "2026-03-09",
+        "author": {"@type": "Organization", "name": "MouseKey", "url": "https://cleverandconfused.github.io/"},
+        "publisher": {"@type": "Organization", "name": "Vaelor"},
+        "about": ["click cadence", "mouse shortcuts", "mouse remapping", "X-Mouse", "gaming mouse", "productivity"],
+        "mainEntityOfPage": "https://cleverandconfused.github.io/blog-one-button-five-shortcuts.html"
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root{--bg-deep:#080F1A;--bg-primary:#0D1B2A;--bg-card:#1B263B;--bg-elevated:#2A3A5F;--accent:#6EC1FF;--accent-glow:rgba(110,193,255,.15);--text-primary:#E0E1DD;--text-secondary:#A8DADC;--text-muted:#7B8FA3;--border:rgba(110,193,255,.08);--success:#4ADE80}
+        *{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+        body{font-family:'DM Sans',sans-serif;background:var(--bg-deep);color:var(--text-primary);line-height:1.6;overflow-x:hidden}
+        nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(8,15,26,.82);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+        .nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text-primary)}
+        .nav-brand img{width:32px;height:32px;border-radius:8px}
+        .nav-brand span{font-weight:700;font-size:1.15rem;letter-spacing:-.02em}
+        .nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
+        .nav-links a{color:var(--text-muted);text-decoration:none;font-size:.88rem;font-weight:500;transition:color .2s}
+        .nav-links a:hover{color:var(--text-primary)}
+        .nav-cta{background:var(--accent);color:var(--bg-deep)!important;padding:8px 20px;border-radius:8px;font-weight:600!important;transition:transform .2s,box-shadow .2s!important}
+        .nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(110,193,255,.3)}
+        .mobile-menu-btn{display:none;background:none;border:none;color:var(--text-primary);cursor:pointer;padding:8px}
+        .blog-hero{padding:120px 2rem 40px;max-width:780px;margin:0 auto}
+        .blog-breadcrumb{font-size:.82rem;color:var(--text-muted);margin-bottom:1.5rem}
+        .blog-breadcrumb a{color:var(--accent);text-decoration:none}
+        .blog-breadcrumb a:hover{text-decoration:underline}
+        .blog-meta{display:flex;align-items:center;gap:14px;font-size:.85rem;color:var(--text-muted);margin-bottom:1.5rem;flex-wrap:wrap}
+        .blog-tag{display:inline-flex;padding:3px 10px;background:var(--accent-glow);border:1px solid rgba(110,193,255,.12);border-radius:100px;font-size:.72rem;color:var(--accent);font-weight:500}
+        .blog-hero h1{font-size:clamp(1.8rem,4vw,2.4rem);font-weight:700;line-height:1.12;letter-spacing:-.025em;margin-bottom:1rem}
+        .blog-hero .lead{color:var(--text-secondary);font-size:1.1rem;line-height:1.7}
+        .blog-article{max-width:780px;margin:0 auto;padding:0 2rem 80px}
+        .blog-article h2{font-size:1.3rem;font-weight:700;margin:2.5rem 0 .75rem;letter-spacing:-.015em}
+        .blog-article p{color:var(--text-secondary);font-size:1rem;line-height:1.8;margin-bottom:1.25rem}
+        .blog-article p strong{color:var(--text-primary)}
+        .blog-article ul{color:var(--text-secondary);margin:0 0 1.5rem 1.25rem;font-size:1rem;line-height:1.8}
+        .blog-article li{margin-bottom:.5rem}
+        .blog-article li strong{color:var(--text-primary)}
+        .blog-article a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(110,193,255,.25);transition:border-color .2s}
+        .blog-article a.btn-primary{color:var(--bg-deep);border-bottom:none}
+        .blog-article a:hover{border-color:var(--accent)}
+        .callout{margin:1.5rem 0;padding:20px 24px;background:var(--bg-card);border-radius:14px;border:1px solid var(--border);border-left:3px solid var(--accent)}
+        .callout p{margin-bottom:0!important;color:var(--text-secondary)}
+        .callout strong{color:var(--text-primary)}
+        .cadence-demo{margin:2rem 0;display:flex;flex-direction:column;gap:12px}
+        .cad-row{display:flex;align-items:center;gap:14px;padding:16px 20px;background:var(--bg-card);border-radius:14px;border:1px solid var(--border)}
+        .cad-dots{display:flex;gap:5px}
+        .cad-dot{width:12px;height:12px;border-radius:50%;background:var(--accent)}
+        .cad-dot.off{background:var(--bg-elevated)}
+        .cad-name{font-weight:600;font-size:.9rem;min-width:90px}
+        .cad-arrow{color:var(--text-muted);font-size:.85rem}
+        .cad-action{font-family:'JetBrains Mono',monospace;font-size:.82rem;background:var(--bg-elevated);padding:4px 12px;border-radius:6px;color:var(--accent)}
+        .blog-img{margin:2rem 0;border-radius:14px;overflow:hidden;border:1px solid var(--border);box-shadow:0 20px 50px rgba(0,0,0,.3)}
+        .blog-img img{width:100%;height:auto;display:block}
+        .blog-img-cap{padding:12px 18px;font-size:.82rem;color:var(--text-muted);background:var(--bg-card);border-top:1px solid var(--border)}
+        .blog-cta{margin:3rem 0;padding:32px;background:var(--bg-card);border-radius:16px;border:1px solid var(--border);text-align:center}
+        .blog-cta h3{font-size:1.15rem;font-weight:700;margin-bottom:.5rem}
+        .blog-cta p{color:var(--text-muted);font-size:.92rem;margin-bottom:1.25rem}
+        .btn-primary{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;background:var(--accent);color:var(--bg-deep);border:none;border-radius:12px;font-size:1rem;font-weight:700;font-family:inherit;cursor:pointer;text-decoration:none;transition:transform .2s,box-shadow .2s}
+        .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(110,193,255,.3)}
+        footer{background:var(--bg-primary);border-top:1px solid var(--border);padding:36px 2rem}
+        .footer-inner{max-width:780px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+        .footer-left{display:flex;align-items:center;gap:10px}
+        .footer-left img{width:24px;height:24px;border-radius:6px}
+        .footer-left span{font-weight:600;font-size:.88rem}
+        .footer-links{display:flex;gap:1.5rem}
+        .footer-links a{color:var(--text-muted);font-size:.82rem;text-decoration:none;transition:color .2s}
+        .footer-links a:hover{color:var(--text-primary)}
+        .footer-copy{width:100%;text-align:center;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);font-size:.75rem;color:var(--text-muted)}
+        @media(max-width:640px){.nav-links{display:none}.mobile-menu-btn{display:block}.nav-links.open{display:flex;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:var(--bg-deep);padding:1.5rem 2rem;border-bottom:1px solid var(--border)}.blog-hero{padding:100px 1.25rem 30px}.blog-article{padding:0 1.25rem 60px}.cad-row{flex-wrap:wrap;gap:8px}.footer-inner{flex-direction:column;text-align:center}.footer-links{justify-content:center}}
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="nav-brand"><img src="mousekey-logo.png" alt="MouseKey logo" width="32" height="32"><span>MouseKey</span></a>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#features">Features</a></li>
+        <li><a href="index.html#compare">Compare</a></li>
+        <li><a href="index.html#privacy">Privacy</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="https://apps.microsoft.com/detail/9PHM28LJDZF5" class="nav-cta" target="_blank" rel="noopener">Get MouseKey</a></li>
+    </ul>
+    <button class="mobile-menu-btn" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Toggle menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
+</nav>
+
+<header class="blog-hero">
+    <div class="blog-breadcrumb"><a href="index.html">MouseKey</a> / <a href="blog.html">Blog</a></div>
+    <div class="blog-meta">
+        <span>March 9, 2026</span>
+        <span class="blog-tag">Click Cadence</span>
+        <span class="blog-tag">Mouse Remapping</span>
+        <span class="blog-tag">Guide</span>
+    </div>
+    <h1>Turn One Mouse Button Into 5 Shortcuts With Click Cadences</h1>
+    <p class="lead">Most mouse remapping tools give you one action per button. MouseKey gives you five. Here's how click cadences work and why they change the way you use your mouse for gaming, work, and everything in between.</p>
+</header>
+
+<article class="blog-article">
+
+    <h2>What is a click cadence?</h2>
+    <p>A click cadence is how many times you rapidly press a mouse button before pausing. You already use one every day — a <strong>double click</strong> is a cadence of two. MouseKey extends this concept and lets you assign a different action to each cadence level on any mouse button:</p>
+    <ul>
+        <li><strong>Single click</strong> (1 press) — triggers action #1</li>
+        <li><strong>Double click</strong> (2 rapid presses) — triggers action #2</li>
+        <li><strong>Triple click</strong> (3 rapid presses) — triggers action #3</li>
+        <li><strong>Quad click</strong> (4 rapid presses) — triggers action #4</li>
+        <li><strong>Quint click</strong> (5 rapid presses) — triggers action #5</li>
+    </ul>
+    <p>MouseKey listens for the final count before firing. If you single click, it waits a beat to confirm you're done, then executes. If you double click, triple click, or go higher, MouseKey detects the full cadence and fires the corresponding action. The timing feels similar to a standard double click — fast enough to be natural, slow enough to be deliberate.</p>
+
+    <h2>See it in action</h2>
+    <p>Here's what a single middle button looks like with all five cadence levels configured in MouseKey:</p>
+
+    <div class="cadence-demo">
+        <div class="cad-row"><div class="cad-dots"><div class="cad-dot"></div><div class="cad-dot off"></div><div class="cad-dot off"></div><div class="cad-dot off"></div><div class="cad-dot off"></div></div><span class="cad-name">Single click</span><span class="cad-arrow">→</span><span class="cad-action">Copy</span></div>
+        <div class="cad-row"><div class="cad-dots"><div class="cad-dot"></div><div class="cad-dot"></div><div class="cad-dot off"></div><div class="cad-dot off"></div><div class="cad-dot off"></div></div><span class="cad-name">Double click</span><span class="cad-arrow">→</span><span class="cad-action">Paste</span></div>
+        <div class="cad-row"><div class="cad-dots"><div class="cad-dot"></div><div class="cad-dot"></div><div class="cad-dot"></div><div class="cad-dot off"></div><div class="cad-dot off"></div></div><span class="cad-name">Triple click</span><span class="cad-arrow">→</span><span class="cad-action">Undo</span></div>
+        <div class="cad-row"><div class="cad-dots"><div class="cad-dot"></div><div class="cad-dot"></div><div class="cad-dot"></div><div class="cad-dot"></div><div class="cad-dot off"></div></div><span class="cad-name">Quad click</span><span class="cad-arrow">→</span><span class="cad-action">Screen Snip</span></div>
+        <div class="cad-row"><div class="cad-dots"><div class="cad-dot"></div><div class="cad-dot"></div><div class="cad-dot"></div><div class="cad-dot"></div><div class="cad-dot"></div></div><span class="cad-name">Quint click</span><span class="cad-arrow">→</span><span class="cad-action">Mute Audio</span></div>
+    </div>
+
+    <p>That's <strong>5 keyboard shortcuts replaced by one mouse button</strong>. A standard three-button mouse with left, right, and middle gives you up to <strong>15 programmable shortcuts</strong> without buying any new hardware. A gaming mouse with back and forward buttons? Even more.</p>
+
+    <h2>How this compares to X-Mouse Button Control</h2>
+    <p>If you've looked into mouse remapping on Windows, you've probably come across <strong>X-Mouse Button Control</strong> (XMBC). It's a well-known tool that's been around for years and it does a solid job at basic button remapping — one button, one action.</p>
+    <p>But X-Mouse Button Control doesn't have click cadences. When you remap a button in XMBC, that button does one thing, period. There's no way to assign different actions to a single click versus a double click versus a triple click on the same button. That's the core difference with MouseKey — the cadence system multiplies what every button can do.</p>
+    <p>X-Mouse Button Control also has a steep learning curve. The interface is entirely text-based with layers, profiles, simulated keystroke editors, and advanced settings that assume you already know what you're doing. MouseKey takes the opposite approach: add a button, pick an action from a dropdown or use the built-in recorder to capture any keyboard shortcut, and you're done.</p>
+
+    <div class="callout">
+        <p><strong>Not a knock on XMBC.</strong> X-Mouse Button Control is a capable tool with deep customization options, including per-application profiles and advanced macro sequencing. If you need that level of control, it's worth a look. But if you want more actions per button with less configuration, MouseKey's cadence system is a different approach entirely.</p>
+    </div>
+
+    <h2>Click cadences for gaming</h2>
+    <p>The cadence system is especially useful for PC gaming where keeping your hands on the mouse matters. Here are a few practical setups:</p>
+    <p><strong>Valorant</strong> — Map your middle button cadences to quick utility actions: single click for ability 1, double click for ability 2, triple click for spike plant/defuse. Keeps your left hand free for movement keys instead of reaching across the keyboard for C, Q, or 4.</p>
+    <p><strong>Counter-Strike 2</strong> — Use a side button to cycle through buy menu shortcuts. Single click for armor, double click for AK/M4, triple click for AWP, quad click for defuse kit. Or map cadences to common callout text binds if you're using MouseKey's text recorder.</p>
+    <p><strong>Fortnite</strong> — Assign building shortcuts to cadences on a thumb button. Single click for wall, double click for ramp, triple click for floor. Frees up keyboard binds for weapon slots and movement without sacrificing build speed.</p>
+    <p>In all three cases, the advantage is the same: you're getting more actions from fewer buttons without taking your hand off the mouse or reaching for uncomfortable key combinations. MouseKey's recorder lets you capture any keybind your game uses, so the setup takes seconds.</p>
+
+    <div class="blog-img">
+        <img src="mousekey-select-action.png" alt="MouseKey action dropdown showing Copy, Select Window, Hide Windows, Esc, Print Screen, Screen Snip, Volume, Mute, Brightness, and Create Hot Key recorder" loading="lazy">
+        <div class="blog-img-cap">MouseKey's action menu — choose a preset or use the recorder to capture any custom keyboard shortcut or text string.</div>
+    </div>
+
+    <h2>Click cadences for productivity</h2>
+    <p>Gaming isn't the only use case. If you spend your day in a browser, IDE, or office suite, cadences eliminate a lot of repetitive keyboard reaching:</p>
+    <ul>
+        <li><strong>Single click</strong> → Copy (Ctrl+C)</li>
+        <li><strong>Double click</strong> → Paste (Ctrl+V)</li>
+        <li><strong>Triple click</strong> → Select All (Ctrl+A)</li>
+        <li><strong>Quad click</strong> → Undo (Ctrl+Z)</li>
+        <li><strong>Quint click</strong> → Show Desktop (Win+D)</li>
+    </ul>
+    <p>If you do data entry, development, or content creation, those five shortcuts alone probably cover actions you perform dozens or hundreds of times per day. Moving them to a single mouse button means your workflow stays in one hand — no more reaching for Ctrl combinations mid-task.</p>
+    <p>MouseKey also lets you use the recorder to capture text strings as macros. If you type the same email signature, template response, or code snippet repeatedly, record it once and assign it to a cadence. Triple click your side button and the entire string gets typed out instantly.</p>
+
+    <h2>How to set it up in MouseKey</h2>
+    <p>Configuring click cadences in MouseKey takes about 30 seconds per button:</p>
+    <ul>
+        <li><strong>Open MouseKey</strong> and click the + button to add a new slot.</li>
+        <li><strong>Select a mouse button</strong> from the dropdown — Middle, Back, Forward, or any button your mouse has.</li>
+        <li><strong>Set the click sequence number</strong> — choose 1 for single click, 2 for double click, 3 for triple click, and so on.</li>
+        <li><strong>Choose an action</strong> — pick from built-in presets like Copy, Paste, Mute, or Screen Snip. Or select "Create Hot Key" to open the recorder and capture any keyboard shortcut or text string.</li>
+        <li><strong>Repeat</strong> for each cadence level. Add another slot with the same button but a different click sequence number, and assign a different action.</li>
+    </ul>
+    <p>That's it. MouseKey handles the cadence detection automatically. No scripting, no config files, no learning curve.</p>
+
+    <div class="blog-img">
+        <img src="mousekey-select-button.png" alt="MouseKey button selection showing Middle, Tilt Left, Tilt Right, Back Button, Forward Button, Scroll Down, Scroll Up, and custom buttons" loading="lazy">
+        <div class="blog-img-cap">MouseKey works with any mouse button — including tilt, scroll, back, forward, and custom-numbered buttons.</div>
+    </div>
+
+    <h2>The math: why cadences matter</h2>
+    <p>Traditional mouse remapping gives you one action per button. That means a 5-button mouse gives you 5 custom shortcuts. With MouseKey's cadence system, those same 5 buttons give you <strong>up to 25 programmable shortcuts</strong> — each button carrying 5 distinct actions across single click, double click, triple click, quad click, and quint click cadences.</p>
+    <p>Even a basic 3-button office mouse (left, right, middle) goes from 3 possible remaps to 15. No extra hardware. No drivers. Just a different way of thinking about what a mouse button can do.</p>
+
+    <div class="blog-cta">
+        <h3>Try MouseKey</h3>
+        <p>Turn any mouse button into 5 shortcuts. Built-in recorder for custom keyboard shortcuts. Works with any mouse on Windows.</p>
+        <a href="https://apps.microsoft.com/detail/9PHM28LJDZF5" class="btn-primary" target="_blank" rel="noopener">⊞ Get MouseKey on Microsoft Store</a>
+    </div>
+
+</article>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-left"><img src="mousekey-logo.png" alt="MouseKey" width="24" height="24"><span>MouseKey</span></div>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#privacy">Privacy</a>
+            <a href="blog.html">Blog</a>
+            <a href="mailto:MSKey093&#64;gmail.com">Contact</a>
+        </div>
+        <div class="footer-copy">&copy; 2025 Vaelor. MouseKey is an independent product, not affiliated with or endorsed by Microsoft Corporation.</div>
+    </div>
+</footer>
+
+<script>document.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('navLinks').classList.remove('open')})});</script>
+</body>
+</html>
