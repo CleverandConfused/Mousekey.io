@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MouseKey 2.1: Hold Actions, Timed Macros, Button Reassignment & More | MouseKey Blog</title>
+    <meta name="description" content="MouseKey 2.1 adds hold-to-trigger actions, timed macro recording and playback, mouse button reassignment, unlimited profiles, profile switching via mouse, and a customizable disable button. The biggest feature update since 2.0.">
+    <meta name="keywords" content="MouseKey 2.1, MouseKey update, mouse hold action, timed macro, macro recorder, macro playback, mouse button reassignment, remap left click, remap right click, disable mouse button, unlimited profiles, profile switching, mouse remapping, programmable mouse, click cadence, G Hub alternative, Synapse alternative, X-Mouse alternative, AutoHotkey alternative, Windows mouse tool, mouse shortcut, mouse macro software">
+    <meta name="author" content="Vaelor">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://cleverandconfused.github.io/blog-v2-1-update.html">
+    <link rel="icon" type="image/png" href="mousekey-logo.png">
+    <meta name="theme-color" content="#0D1B2A">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="MouseKey">
+    <meta property="og:title" content="MouseKey 2.1: Hold Actions, Timed Macros, Button Reassignment & More">
+    <meta property="og:description" content="MouseKey 2.1 adds hold-to-trigger actions, timed macro recording, button reassignment, unlimited profiles, and a customizable off button.">
+    <meta property="og:url" content="https://cleverandconfused.github.io/blog-v2-1-update.html">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "MouseKey 2.1: Hold Actions, Timed Macros, Button Reassignment & More",
+        "datePublished": "2026-03-12",
+        "author": {"@type": "Organization", "name": "MouseKey", "url": "https://cleverandconfused.github.io/"},
+        "publisher": {"@type": "Organization", "name": "Vaelor"},
+        "about": ["MouseKey 2.1", "hold action", "timed macro", "button reassignment", "mouse remapping", "profile switching", "macro recorder"],
+        "mainEntityOfPage": "https://cleverandconfused.github.io/blog-v2-1-update.html"
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root{--bg-deep:#080F1A;--bg-primary:#0D1B2A;--bg-card:#1B263B;--bg-elevated:#2A3A5F;--accent:#6EC1FF;--accent-glow:rgba(110,193,255,.15);--text-primary:#E0E1DD;--text-secondary:#A8DADC;--text-muted:#7B8FA3;--border:rgba(110,193,255,.08);--success:#4ADE80}
+        *{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+        body{font-family:'DM Sans',sans-serif;background:var(--bg-deep);color:var(--text-primary);line-height:1.6;overflow-x:hidden}
+        nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(8,15,26,.82);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+        .nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text-primary)}
+        .nav-brand img{width:32px;height:32px;border-radius:8px}
+        .nav-brand span{font-weight:700;font-size:1.15rem;letter-spacing:-.02em}
+        .nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
+        .nav-links a{color:var(--text-muted);text-decoration:none;font-size:.88rem;font-weight:500;transition:color .2s}
+        .nav-links a:hover{color:var(--text-primary)}
+        .nav-cta{background:var(--accent);color:var(--bg-deep)!important;padding:8px 20px;border-radius:8px;font-weight:600!important;transition:transform .2s,box-shadow .2s!important}
+        .nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(110,193,255,.3)}
+        .mobile-menu-btn{display:none;background:none;border:none;color:var(--text-primary);cursor:pointer;padding:8px}
+        .blog-hero{padding:120px 2rem 40px;max-width:780px;margin:0 auto}
+        .blog-breadcrumb{font-size:.82rem;color:var(--text-muted);margin-bottom:1.5rem}
+        .blog-breadcrumb a{color:var(--accent);text-decoration:none}
+        .blog-breadcrumb a:hover{text-decoration:underline}
+        .blog-meta{display:flex;align-items:center;gap:14px;font-size:.85rem;color:var(--text-muted);margin-bottom:1.5rem;flex-wrap:wrap}
+        .blog-tag{display:inline-flex;padding:3px 10px;background:var(--accent-glow);border:1px solid rgba(110,193,255,.12);border-radius:100px;font-size:.72rem;color:var(--accent);font-weight:500}
+        .blog-hero h1{font-size:clamp(1.8rem,4vw,2.4rem);font-weight:700;line-height:1.12;letter-spacing:-.025em;margin-bottom:1rem}
+        .blog-hero .lead{color:var(--text-secondary);font-size:1.1rem;line-height:1.7}
+        .blog-article{max-width:780px;margin:0 auto;padding:0 2rem 80px}
+        .blog-article h2{font-size:1.3rem;font-weight:700;margin:2.5rem 0 .75rem;letter-spacing:-.015em}
+        .blog-article h3{font-size:1.05rem;font-weight:600;margin:1.5rem 0 .5rem}
+        .blog-article p{color:var(--text-secondary);font-size:1rem;line-height:1.8;margin-bottom:1.25rem}
+        .blog-article p strong{color:var(--text-primary)}
+        .blog-article ul{color:var(--text-secondary);margin:0 0 1.5rem 1.25rem;font-size:1rem;line-height:1.8}
+        .blog-article li{margin-bottom:.5rem}
+        .blog-article li strong{color:var(--text-primary)}
+        .blog-article a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(110,193,255,.25);transition:border-color .2s}
+        .blog-article a.btn-primary{color:var(--bg-deep);border-bottom:none}
+        .blog-article a:hover{border-color:var(--accent)}
+        .callout{margin:1.5rem 0;padding:20px 24px;background:var(--bg-card);border-radius:14px;border:1px solid var(--border);border-left:3px solid var(--accent)}
+        .callout p{margin-bottom:0!important;color:var(--text-secondary)}
+        .callout strong{color:var(--text-primary)}
+        .feature-box{margin:1.5rem 0;padding:24px 28px;background:var(--bg-card);border-radius:16px;border:1px solid var(--border)}
+        .feature-box h3{font-size:1.05rem;font-weight:700;margin:0 0 .5rem 0;color:var(--text-primary)}
+        .feature-box p{color:var(--text-secondary);font-size:.95rem;line-height:1.7;margin-bottom:0}
+        .feature-box .tag{display:inline-block;font-size:.72rem;font-weight:600;padding:2px 8px;border-radius:6px;background:var(--accent-glow);color:var(--accent);margin-bottom:.75rem}
+        .blog-img{margin:2rem 0;border-radius:14px;overflow:hidden;border:1px solid var(--border);box-shadow:0 20px 50px rgba(0,0,0,.3)}
+        .blog-img img{width:100%;height:auto;display:block}
+        .blog-img-cap{padding:12px 18px;font-size:.82rem;color:var(--text-muted);background:var(--bg-card);border-top:1px solid var(--border)}
+        .blog-cta{margin:3rem 0;padding:32px;background:var(--bg-card);border-radius:16px;border:1px solid var(--border);text-align:center}
+        .blog-cta h3{font-size:1.15rem;font-weight:700;margin-bottom:.5rem}
+        .blog-cta p{color:var(--text-muted);font-size:.92rem;margin-bottom:1.25rem}
+        .btn-primary{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;background:var(--accent);color:var(--bg-deep);border:none;border-radius:12px;font-size:1rem;font-weight:700;font-family:inherit;cursor:pointer;text-decoration:none;transition:transform .2s,box-shadow .2s}
+        .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(110,193,255,.3)}
+        footer{background:var(--bg-primary);border-top:1px solid var(--border);padding:36px 2rem}
+        .footer-inner{max-width:780px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+        .footer-left{display:flex;align-items:center;gap:10px}
+        .footer-left img{width:24px;height:24px;border-radius:6px}
+        .footer-left span{font-weight:600;font-size:.88rem}
+        .footer-links{display:flex;gap:1.5rem}
+        .footer-links a{color:var(--text-muted);font-size:.82rem;text-decoration:none;transition:color .2s}
+        .footer-links a:hover{color:var(--text-primary)}
+        .footer-copy{width:100%;text-align:center;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);font-size:.75rem;color:var(--text-muted)}
+        @media(max-width:640px){.nav-links{display:none}.mobile-menu-btn{display:block}.nav-links.open{display:flex;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:var(--bg-deep);padding:1.5rem 2rem;border-bottom:1px solid var(--border)}.blog-hero{padding:100px 1.25rem 30px}.blog-article{padding:0 1.25rem 60px}.footer-inner{flex-direction:column;text-align:center}.footer-links{justify-content:center}}
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="nav-brand"><img src="mousekey-logo.png" alt="MouseKey logo" width="32" height="32"><span>MouseKey</span></a>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#features">Features</a></li>
+        <li><a href="index.html#compare">Compare</a></li>
+        <li><a href="index.html#privacy">Privacy</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="https://apps.microsoft.com/detail/9PHM28LJDZF5" class="nav-cta" target="_blank" rel="noopener">Get MouseKey</a></li>
+    </ul>
+    <button class="mobile-menu-btn" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Toggle menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
+</nav>
+
+<header class="blog-hero">
+    <div class="blog-breadcrumb"><a href="index.html">MouseKey</a> / <a href="blog.html">Blog</a></div>
+    <div class="blog-meta">
+        <span>March 12, 2026</span>
+        <span class="blog-tag">Version 2.1</span>
+        <span class="blog-tag">Update</span>
+        <span class="blog-tag">New Features</span>
+    </div>
+    <h1>MouseKey 2.1: Hold Actions, Timed Macros, Button Reassignment, and More</h1>
+    <p class="lead">Version 2.1 is live on the Microsoft Store. This update adds six new capabilities that make MouseKey even more flexible as a mouse remapping and macro tool — including features that close the gap with tools like <a href="blog-autohotkey-vs-mousekey.html">AutoHotkey</a> and <a href="blog-ghub-vs-mousekey.html">G Hub</a>.</p>
+</header>
+
+<article class="blog-article">
+
+    <h2>What's new in MouseKey 2.1</h2>
+
+    <div class="feature-box">
+        <div class="tag">NEW</div>
+        <h3>Hold-to-trigger actions</h3>
+        <p>Any mouse button can now fire an action when you hold it for 2 seconds. This adds a sixth action slot to every button on top of the existing <a href="blog-one-button-five-shortcuts.html">5 click cadence levels</a>. Use it for actions you want deliberate access to — launching an app, toggling a mode, or firing a less-frequent shortcut — without worrying about accidental triggers from fast clicks.</p>
+    </div>
+
+    <p>With click cadences (single click, double click, triple click, quad click, quint click) plus the new hold action, <strong>every button on your mouse now supports up to 6 distinct shortcuts</strong>. A basic three-button office mouse with just a middle scroll wheel click gives you 6 programmable actions from that one button alone.</p>
+
+    <div class="blog-img">
+        <img src="store-screenshot-1.png" alt="MouseKey showing 6 actions on one button — single click through quint click plus hold 2 seconds" loading="lazy">
+        <div class="blog-img-cap">One button, six shortcuts — click cadences 1 through 5 plus a 2-second hold trigger.</div>
+    </div>
+
+    <div class="feature-box">
+        <div class="tag">NEW</div>
+        <h3>Timed macro recording and playback</h3>
+        <p>MouseKey's built-in macro recorder now captures timing between keystrokes. When you record a macro, MouseKey remembers not just which keys you pressed, but how long you waited between each one. On playback, the macro replays with the same timing. This is an optional feature — useful for workflows where the sequence and pacing of inputs matters, like filling forms, navigating multi-step menus, or executing timed game inputs.</p>
+    </div>
+
+    <p>This was one of the most requested features since <a href="blog-v2.html">version 2.0 launched</a>. The recorder still works the same way — select "Create Hot Key" from the action dropdown and start pressing keys — but now it captures the full timing of your input. For macros where timing doesn't matter, the playback is still instant. For macros where it does, the recorded timing is preserved exactly.</p>
+
+    <div class="callout">
+        <p><strong>When is timed playback useful?</strong> Any time a sequence of inputs needs to happen at a specific pace — navigating software menus where each step needs a moment to load, entering data into fields that require tab-then-pause-then-type patterns, or executing multi-input game sequences where order and timing both matter.</p>
+    </div>
+
+    <div class="feature-box">
+        <div class="tag">NEW</div>
+        <h3>Mouse button reassignment</h3>
+        <p>MouseKey can now reassign one mouse button to act as a different mouse button. For example, you can make your back side button behave like a left click, or make your forward side button act as a right click. You can also reassign your left and right click buttons to keyboard shortcuts or other actions for gaming setups. Note that if you override the function of your left or right click, those buttons will perform the new assigned action instead of their default — so plan your layout accordingly.</p>
+    </div>
+
+    <p>This is particularly useful for users with mice that have buttons in awkward positions, or for anyone who wants to mirror button functions across their mouse layout. It's also a feature that <a href="blog-ghub-vs-mousekey.html">G Hub</a> and other manufacturer software handle, but MouseKey does it for any mouse brand — not just Logitech or Razer.</p>
+
+    <div class="feature-box">
+        <div class="tag">NEW</div>
+        <h3>Disable any button</h3>
+        <p>You can now disable a mouse button entirely through MouseKey. If a button is causing accidental clicks — like a DPI switch you keep hitting during games, or a tilt wheel you trigger by accident — MouseKey can block it completely. The button simply does nothing while MouseKey is active.</p>
+    </div>
+
+    <div class="feature-box">
+        <div class="tag">NEW</div>
+        <h3>Unlimited profiles with mouse-based switching</h3>
+        <p>MouseKey now supports unlimited profiles, and you can switch between them using a dedicated smart action assigned to any button or click cadence. No need to open the app to change profiles — just assign "Next Profile" to a cadence and cycle through your configurations on the fly. This makes it easy to maintain separate setups for work, gaming, browsing, and creative apps without any friction.</p>
+    </div>
+
+    <div class="feature-box">
+        <div class="tag">NEW</div>
+        <h3>Customize which button turns off MouseKey</h3>
+        <p>In previous versions, holding the middle mouse button for 3 seconds was the only way to toggle MouseKey on and off. Version 2.1 lets you choose which button triggers the disable toggle. If you rely on your middle button for other things — or if your mouse doesn't have one — you can now assign the toggle to any button that works for your setup. Hold it for 2 seconds and MouseKey turns off, returning all buttons to their original function. Hold again to re-enable.</p>
+    </div>
+
+    <h2>What this means for different users</h2>
+    <p>Version 2.1 touches every part of MouseKey — from how actions trigger, to how macros record, to how you manage profiles and toggle the app. Here's how the new features apply depending on how you use your mouse.</p>
+
+    <h3>For productivity and office use</h3>
+    <p>The timed macro recorder is a standout for repetitive data entry workflows where you tab through fields at a consistent pace. Profile switching via mouse makes it easy to keep separate button layouts for different apps. And the new hold-to-trigger action gives you a sixth slot per button for less-frequent shortcuts like launching your email client or showing the desktop — reserve <a href="blog-one-button-five-shortcuts.html">click cadences for the high-frequency stuff</a> like copy, paste, undo, screenshot, and mute.</p>
+
+    <h3>For developers</h3>
+    <p>Timed macros open up multi-step workflows that weren't possible before. Record a sequence like "save file, switch to terminal, run build command" with the natural pauses between steps, and replay it from a single mouse button. Profile switching via mouse means you can have a coding profile, a debugging profile, and a browser testing profile — and cycle between them without leaving your IDE.</p>
+
+    <h3>For gaming</h3>
+    <p>Button disabling removes accidental DPI switches or tilt-wheel triggers that interrupt gameplay. Button reassignment lets you rearrange your mouse layout without manufacturer software — useful if you're on a mouse that <a href="blog-ghub-vs-mousekey.html">G Hub or Synapse doesn't support well</a>. And the customizable off button means you can quickly return to normal mouse function between matches without hunting for a specific button.</p>
+
+    <h2>How MouseKey 2.1 compares</h2>
+    <p>With timed macros and button reassignment, MouseKey now covers functionality that previously required either <a href="blog-autohotkey-vs-mousekey.html">AutoHotkey scripting</a> or manufacturer-specific software like G Hub. The difference remains the same: MouseKey does it through a visual interface with no code, works with any mouse brand, and stays fully offline with zero telemetry.</p>
+    <p>Here's where MouseKey 2.1 stands against the common alternatives:</p>
+    <ul>
+        <li><strong>vs G Hub / Synapse:</strong> MouseKey works with any mouse, not just one brand. It now matches their button reassignment and macro recording capabilities, without the account requirements, cloud sync, or stability issues.</li>
+        <li><strong>vs <a href="blog-one-button-five-shortcuts.html">X-Mouse Button Control</a>:</strong> MouseKey still offers click cadences (up to 6 actions per button) that X-Mouse can't match, and the new timed macro recorder is simpler to use than X-Mouse's simulated keystroke editor.</li>
+        <li><strong>vs <a href="blog-autohotkey-vs-mousekey.html">AutoHotkey</a>:</strong> Timed macros close one of the biggest gaps. AHK still wins for conditional logic, per-app hotkeys, and keyboard remapping. But for mouse-specific remapping with macro recording, MouseKey now handles it without writing a single line of script.</li>
+    </ul>
+
+    <h2>Full changelog for v2.1</h2>
+    <ul>
+        <li><strong>Hold actions:</strong> Assign a 2-second hold trigger to any mouse button for a 6th action slot</li>
+        <li><strong>Timed macro recorder:</strong> Macro playback now preserves the original timing between keystrokes (optional)</li>
+        <li><strong>Button reassignment:</strong> Remap any mouse button to act as a different mouse button</li>
+        <li><strong>Button disabling:</strong> Fully disable any mouse button while MouseKey is active</li>
+        <li><strong>Unlimited profiles:</strong> No cap on the number of profiles you can create</li>
+        <li><strong>Profile switching via mouse:</strong> Assign "Next Profile" as a smart action to any button or cadence</li>
+        <li><strong>Customize which button turns off MouseKey:</strong> Choose which button triggers the MouseKey on/off hold — no longer limited to middle button</li>
+    </ul>
+
+    <h2>How to update</h2>
+    <p>If you already have MouseKey installed from the Microsoft Store, the update should arrive automatically. You can also check for updates manually in the Microsoft Store app. New users can install MouseKey directly from the Store — setup takes under a minute, and your first profile can be configured in seconds.</p>
+
+    <p>Check out the <a href="blog-demo-video.html">demo video</a> to see MouseKey in action, or read the <a href="blog-one-button-five-shortcuts.html">click cadence guide</a> if you're new to the concept.</p>
+
+    <div class="blog-cta">
+        <h3>Get MouseKey 2.1</h3>
+        <p>6 actions per button. Timed macros. Button reassignment. Works with any mouse on Windows.</p>
+        <a href="https://apps.microsoft.com/detail/9PHM28LJDZF5" class="btn-primary" target="_blank" rel="noopener">⊞ Get MouseKey on Microsoft Store</a>
+    </div>
+
+</article>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-left"><img src="mousekey-logo.png" alt="MouseKey" width="24" height="24"><span>MouseKey</span></div>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#privacy">Privacy</a>
+            <a href="blog.html">Blog</a>
+            <a href="mailto:MSKey093&#64;gmail.com">Contact</a>
+        </div>
+        <div class="footer-copy">&copy; 2025 Vaelor. MouseKey is an independent product, not affiliated with or endorsed by Microsoft Corporation.</div>
+    </div>
+</footer>
+
+<script>document.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('navLinks').classList.remove('open')})});</script>
+</body>
+</html>
