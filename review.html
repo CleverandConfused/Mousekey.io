@@ -51,6 +51,10 @@
         .field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
         .field-error{color:#f87171;font-size:.8rem;margin-top:6px;display:none}
         .field-error.show{display:block}
+        .field-hint{font-size:.78rem;color:var(--text-muted);margin-top:6px;font-weight:400}
+        .section-divider{border:none;border-top:1px solid var(--border);margin:32px 0 28px}
+        .section-heading{font-size:1rem;font-weight:700;margin-bottom:6px}
+        .section-sub{font-size:.88rem;color:var(--text-muted);margin-bottom:24px}
         .submit-btn{width:100%;padding:16px;background:var(--accent);color:var(--bg-deep);border:none;border-radius:12px;font-size:1rem;font-weight:700;font-family:inherit;cursor:pointer;transition:transform .2s,box-shadow .2s;margin-top:8px}
         .submit-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(110,193,255,.3)}
         .submit-btn:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
@@ -82,7 +86,7 @@
     <ul class="nav-links" id="navLinks">
         <li><a href="index.html#features">Features</a></li>
         <li><a href="index.html#how-it-works">How It Works</a></li>
-        <li><a href="index.html#privacy">Privacy</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
         <li><a href="blog.html">Blog</a></li>
         <li><a href="https://apps.microsoft.com/detail/9PHM28LJDZF5" class="nav-cta" target="_blank" rel="noopener">Get MouseKey</a></li>
     </ul>
@@ -123,7 +127,6 @@
                     <textarea id="reviewBody" placeholder="Tell us what you liked, what could be better, or how you use MouseKey..." maxlength="2000"></textarea>
                 </div>
 
-                <div class="field-row">
                     <div class="field">
                         <label for="reviewCountry">Country / Region</label>
                         <select id="reviewCountry">
@@ -148,16 +151,6 @@
                             <option value="Other">Other</option>
                         </select>
                     </div>
-                    <div class="field">
-                        <label for="reviewDevice">Device Type</label>
-                        <select id="reviewDevice">
-                            <option value="">Select...</option>
-                            <option value="PC" selected>PC</option>
-                            <option value="Laptop">Laptop</option>
-                            <option value="Tablet">Tablet</option>
-                        </select>
-                    </div>
-                </div>
 
                 <div class="field">
                     <label for="reviewSource">How did you discover MouseKey? <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--text-muted)">(optional)</span></label>
@@ -175,6 +168,22 @@
                 <div class="field">
                     <label for="reviewName">Display Name <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--text-muted)">(optional)</span></label>
                     <input type="text" id="reviewName" placeholder="How you'd like to be credited" maxlength="60">
+                </div>
+
+                <hr class="section-divider">
+
+                <div class="section-heading">Feedback / Questions</div>
+                <div class="section-sub">Have a question, feature request, or something else on your mind? Let us know below.</div>
+
+                <div class="field">
+                    <label for="feedbackBody">Your Message <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--text-muted)">(optional)</span></label>
+                    <textarea id="feedbackBody" placeholder="Bug reports, feature ideas, questions, anything..." maxlength="2000" style="min-height:90px"></textarea>
+                </div>
+
+                <div class="field">
+                    <label for="feedbackEmail">Email for Follow-up <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--text-muted)">(optional)</span></label>
+                    <input type="email" id="feedbackEmail" placeholder="you@example.com" maxlength="120">
+                    <div class="field-hint">We won't spam or send updates ever. Only used if we need to respond to your message.</div>
                 </div>
 
                 <button class="submit-btn" id="submitBtn" type="button">Submit</button>
@@ -197,8 +206,9 @@
         </div>
         <div class="footer-links">
             <a href="index.html">Home</a>
-            <a href="index.html#privacy">Privacy</a>
+            <a href="privacy.html">Privacy</a>
             <a href="blog.html">Blog</a>
+            <a id="footerEmail" href="#">Contact</a>
         </div>
         <div class="footer-copy">&copy; 2025 Vaelor. MouseKey is an independent product, not affiliated with or endorsed by Microsoft Corporation.</div>
     </div>
@@ -259,21 +269,18 @@
         var title=document.getElementById('reviewTitle').value.trim();
         var body=document.getElementById('reviewBody').value.trim();
         var country=document.getElementById('reviewCountry').value;
-        var device=document.getElementById('reviewDevice').value;
         var name=document.getElementById('reviewName').value.trim();
         var srcSel=document.getElementById('reviewSource').value;
         var srcOther=document.getElementById('reviewSourceOther').value.trim();
         var source=srcSel==='Other'&&srcOther?'Other: '+srcOther:srcSel;
+        var feedback=document.getElementById('feedbackBody').value.trim();
+        var email=document.getElementById('feedbackEmail').value.trim();
 
         var starStr='';
         for(var s=0;s<5;s++) starStr+=s<rating?'\u2605':'\u2606';
 
-        /* =====================================================
-           REPLACE THE URL BELOW WITH YOUR GOOGLE APPS SCRIPT URL
-           ===================================================== */
         var SHEET_URL='https://script.google.com/macros/s/AKfycbwkDOvGpBgw0XBX7NIq-x7USDLg4ZSEMmCInHd8ceVUKlsDq-CYgaELeSE3an-Yh9hw/exec';
 
-        // Build a real HTML form and submit it to a hidden iframe
         var form=document.createElement('form');
         form.method='POST';
         form.action=SHEET_URL;
@@ -287,9 +294,10 @@
             title:title||'',
             review:body||'',
             country:country||'',
-            device:device||'',
             source:source||'',
-            name:name||'Anonymous'
+            name:name||'Anonymous',
+            feedback:feedback||'',
+            email:email||''
         };
 
         for(var key in fields){
@@ -304,12 +312,16 @@
         form.submit();
         document.body.removeChild(form);
 
-        // Show success after brief delay
         setTimeout(function(){
             document.getElementById('reviewForm').classList.add('hidden');
             document.getElementById('successMsg').classList.add('show');
         },1000);
     });
+
+    // Footer email
+    var u='MSKey093';var d='gmail.com';var e=u+'@'+d;
+    var f=document.getElementById('footerEmail');if(f){f.href='mailto:'+e;}
+    document.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('navLinks').classList.remove('open')})});
 })();
 </script>
 </body>
