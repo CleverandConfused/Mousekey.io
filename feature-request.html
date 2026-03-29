@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feature Request | MouseKey</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/png" href="mousekey-logo.png">
+    <meta name="theme-color" content="#0D1B2A">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg-deep:#080F1A;--bg-primary:#0D1B2A;--bg-card:#1B263B;--bg-elevated:#2A3A5F;--accent:#6EC1FF;--accent-glow:rgba(110,193,255,.15);--text-primary:#E0E1DD;--text-secondary:#A8DADC;--text-muted:#7B8FA3;--border:rgba(110,193,255,.08);--success:#4ADE80}
+        *{margin:0;padding:0;box-sizing:border-box}
+        html{-webkit-font-smoothing:antialiased}
+        body{font-family:'DM Sans',sans-serif;background:var(--bg-deep);color:var(--text-primary);line-height:1.6;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem}
+        .container{width:100%;max-width:500px}
+        .header{text-align:center;margin-bottom:2rem}
+        .header img{width:48px;height:48px;border-radius:12px;margin-bottom:1rem}
+        .header h1{font-size:1.5rem;font-weight:700;letter-spacing:-.02em;margin-bottom:.4rem}
+        .header p{color:var(--text-muted);font-size:.9rem}
+        .card{background:var(--bg-card);border-radius:20px;border:1px solid var(--border);padding:32px 28px;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+        .field{margin-bottom:24px}
+        .field label{display:block;font-size:.85rem;font-weight:600;color:var(--text-muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:.06em}
+        .field textarea{width:100%;background:var(--bg-elevated);border:1px solid var(--border);border-radius:10px;padding:12px 16px;color:var(--text-primary);font-family:inherit;font-size:.95rem;outline:none;transition:border-color .2s;resize:vertical;min-height:140px}
+        .field textarea:focus{border-color:rgba(110,193,255,.3)}
+        .field textarea::placeholder{color:var(--text-muted);opacity:.6}
+        .field-error{color:#f87171;font-size:.8rem;margin-top:6px;display:none}
+        .field-error.show{display:block}
+        .meta{font-size:.75rem;color:var(--text-muted);margin-bottom:20px;padding:10px 14px;background:var(--bg-elevated);border-radius:8px}
+        .meta span{color:var(--text-secondary)}
+        .submit-btn{width:100%;padding:14px;background:var(--accent);color:var(--bg-deep);border:none;border-radius:12px;font-size:1rem;font-weight:700;font-family:inherit;cursor:pointer;transition:transform .2s,box-shadow .2s}
+        .submit-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(110,193,255,.3)}
+        .submit-btn:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
+        .success{display:none;text-align:center;padding:40px 20px}
+        .success.show{display:block}
+        .success .icon{font-size:2.5rem;margin-bottom:1rem;color:var(--success)}
+        .success h2{font-size:1.3rem;font-weight:700;margin-bottom:.4rem}
+        .success p{color:var(--text-muted);font-size:.9rem}
+        .form-content.hidden{display:none}
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <img src="mousekey-logo.png" alt="MouseKey" width="48" height="48">
+        <h1>Feature Request</h1>
+        <p>Tell us what you'd like to see in MouseKey</p>
+    </div>
+    <div class="card">
+        <div class="form-content" id="formContent">
+            <div class="meta" id="metaInfo"></div>
+            <div class="field">
+                <label for="featureText">Your Request</label>
+                <textarea id="featureText" placeholder="Describe the feature you'd like to see" maxlength="3000"></textarea>
+                <div class="field-error" id="fieldError">Please describe your feature request</div>
+            </div>
+            <button class="submit-btn" id="submitBtn" type="button">Submit</button>
+        </div>
+        <div class="success" id="successMsg">
+            <div class="icon">&#10003;</div>
+            <h2>Thank you!</h2>
+            <p>Your feature request has been submitted. We review every suggestion.</p>
+        </div>
+    </div>
+</div>
+
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none"></iframe>
+
+<script>
+(function(){
+    var params = new URLSearchParams(window.location.search);
+    var version = params.get('v') || 'unknown';
+    var source = params.get('src') || 'unknown';
+
+    var meta = document.getElementById('metaInfo');
+    meta.innerHTML = 'App version: <span>' + version + '</span> &middot; Source: <span>' + source + '</span>';
+
+    document.getElementById('submitBtn').addEventListener('click', function(){
+        var text = document.getElementById('featureText').value.trim();
+        if (!text) {
+            document.getElementById('fieldError').classList.add('show');
+            return;
+        }
+        document.getElementById('fieldError').classList.remove('show');
+
+        var btn = this;
+        btn.disabled = true;
+        btn.textContent = 'Sending...';
+
+        /* REPLACE WITH YOUR GOOGLE APPS SCRIPT URL */
+        var SHEET_URL = 'https://script.google.com/macros/s/AKfycbz_jE-F4IcmkLmn3-_vTCllT5q2hve8Z8ues357s18qCXschCRWpCVjjcZ_xSbHq606/exec';
+
+        var form = document.createElement('form');
+        form.method = 'POST';
+        form.action = SHEET_URL;
+        form.target = 'hidden_iframe';
+        form.style.display = 'none';
+
+        var fields = {
+            timestamp: new Date().toISOString(),
+            type: 'Feature Request',
+            message: text,
+            version: version,
+            source: source
+        };
+
+        for (var key in fields) {
+            var input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = key;
+            input.value = fields[key];
+            form.appendChild(input);
+        }
+
+        document.body.appendChild(form);
+        form.submit();
+        document.body.removeChild(form);
+
+        setTimeout(function(){
+            document.getElementById('formContent').classList.add('hidden');
+            document.getElementById('successMsg').classList.add('show');
+        }, 1000);
+    });
+
+    document.getElementById('featureText').addEventListener('input', function(){
+        document.getElementById('fieldError').classList.remove('show');
+    });
+})();
+</script>
+</body>
+</html>
