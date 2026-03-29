@@ -241,7 +241,7 @@
     <p class="hero-sub">Add more smart buttons to any mouse. Even basic mice without side buttons. By using MouseKey's novel <em style="color:var(--accent);font-style:italic">click cadence</em> technology, any button can have up to 6 actions.</p>
     <p class="hero-compare">A lean, fast alternative to <strong>G Hub</strong>, <strong>Synapse</strong>, and <strong>X-Mouse</strong>.</p>
     <div class="hero-actions">
-        <a href="https://apps.microsoft.com/detail/9PHM28LJDZF5" class="btn-primary" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M0 0h11.5v11.5H0zm12.5 0H24v11.5H12.5zM0 12.5h11.5V24H0zm12.5 0H24V24H12.5z"/></svg> Download from Microsoft Store</a>
+        <div style="max-width:220px"><ms-store-badge productid="9PHM28LJDZF5" theme="light" animation="on" mode="full"></ms-store-badge></div>
         <a href="#value" class="btn-secondary">See What's New ↓</a>
     </div>
     <div class="hero-stats">
@@ -472,7 +472,7 @@
     <div class="section-container reveal">
         <h2>Ready to supercharge your mouse?</h2>
         <p>Works with any mouse. Up to 6 actions per button. Set up in under a minute.</p>
-        <a href="https://apps.microsoft.com/detail/9PHM28LJDZF5" class="btn-primary" target="_blank" rel="noopener" style="display:inline-flex"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0h11.5v11.5H0zm12.5 0H24v11.5H12.5zM0 12.5h11.5V24H0zm12.5 0H24V24H12.5z"/></svg> Get MouseKey on Microsoft Store</a>
+        <div style="max-width:220px;margin:0 auto"><ms-store-badge productid="9PHM28LJDZF5" theme="light" animation="on" mode="full"></ms-store-badge></div>
     </div>
 </section>
 
@@ -491,5 +491,6 @@
 var r=document.querySelectorAll('.reveal');var ro=function(){r.forEach(function(el){if(el.getBoundingClientRect().top<window.innerHeight-80)el.classList.add('visible')})};window.addEventListener('scroll',ro);window.addEventListener('load',ro);
 document.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('navLinks').classList.remove('open')})});
 (function(){var u='MSKey093';var d='gmail.com';var e=u+'@'+d;var f=document.getElementById('footerEmail');if(f){f.href='mailto:'+e;f.textContent=e;}})();
-</script></body>
+</script><script type="module" src="https://get.microsoft.com/badge/ms-store-badge.bundled.js"></script>
+</body>
 </html>
