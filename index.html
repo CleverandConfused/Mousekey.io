@@ -71,6 +71,7 @@
 
         /* HERO */
         .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 2rem 60px;position:relative;overflow:hidden}
+        .hero ms-store-badge{display:block;margin:0 auto;max-width:180px}
         .hero::before{content:'';position:absolute;top:-300px;left:50%;transform:translateX(-50%);width:1000px;height:1000px;background:radial-gradient(circle,rgba(110,193,255,.05) 0%,transparent 65%);pointer-events:none}
         .hero-badge{display:inline-flex;align-items:center;gap:10px;padding:6px 18px;background:linear-gradient(135deg,rgba(110,193,255,.12),rgba(110,193,255,.08));border:1px solid rgba(110,193,255,.15);border-radius:100px;font-size:.82rem;color:var(--accent);font-weight:500;margin-bottom:2rem;animation:fadeInUp .6s ease both}
         .hero-badge .new{background:var(--accent-warm);color:var(--bg-deep);padding:2px 8px;border-radius:100px;font-size:.72rem;font-weight:700;letter-spacing:.04em}
@@ -248,9 +249,7 @@
     <h1>Turn <span class="warm">Any Mouse</span> Into a <span class="accent">Shortcut Engine</span></h1>
     <p class="hero-sub">Add more smart buttons to any mouse. Even basic mice without side buttons. By using MouseKey's novel <em style="color:var(--accent);font-style:italic">click cadence</em> technology, any button can have up to 6 actions.</p>
     <p class="hero-compare">A lean, fast alternative to <strong>G Hub</strong>, <strong>Synapse</strong>, and <strong>X-Mouse</strong>.</p>
-    <div style="margin:0 auto;text-align:center">
-        <ms-store-badge productid="9PHM28LJDZF5" theme="light" animation="on" mode="full" style="display:inline-block;max-width:180px"></ms-store-badge>
-    </div>
+    <a href="https://apps.microsoft.com/detail/9PHM28LJDZF5" target="_blank" rel="noopener" style="display:block;margin:0 auto;width:200px"><img src="https://get.microsoft.com/images/en-us%20dark.svg" alt="Download from the Microsoft Store" style="width:100%"></a>
     <div class="hero-stats">
         <div class="hero-stat"><div class="num accent-c">6</div><div class="lbl">Actions Per Button</div></div>
         <div class="hero-stat"><div class="num warm-c">Any</div><div class="lbl">Mouse Brand / Model</div></div>
