@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MouseKey Recorder: How to Create Timed Macros on Windows | MouseKey Blog</title>
+    <meta name="description" content="MouseKey Recorder lets you record macros with precise timing and play them back from any mouse button. Learn the best uses for MouseKey Recorder including string playback for coding, Excel functions, form filling, and more.">
+    <meta name="keywords" content="MouseKey Recorder, MouseKey macro, mouse macro Windows, timed macro recorder, macro playback mouse button, record keyboard macro Windows, MouseKey Recorder Windows, mouse button macro, automation macro recorder, mouse macro VS Code, mouse macro Excel, string playback macro">
+    <meta name="author" content="Vaelor">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://cleverandconfused.github.io/blog-mousekey-recorder.html">
+    <link rel="icon" type="image/png" href="mousekey-logo.png">
+    <meta name="theme-color" content="#0D1B2A">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="MouseKey - Remap and Add More Mouse Buttons">
+    <meta property="og:title" content="MouseKey Recorder: How to Create Timed Macros on Windows">
+    <meta property="og:description" content="MouseKey Recorder lets you record and replay timed macros from any mouse button. Best uses for timed and non-timed macros.">
+    <meta property="og:url" content="https://cleverandconfused.github.io/blog-mousekey-recorder.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"MouseKey Recorder: How to Create Timed Macros on Windows","datePublished":"2026-04-11","author":{"@type":"Organization","name":"MouseKey","url":"https://cleverandconfused.github.io/"},"publisher":{"@type":"Organization","name":"Vaelor"},"about":["MouseKey Recorder","macro recording","timed macros","mouse automation","Windows macros"],"mainEntityOfPage":"https://cleverandconfused.github.io/blog-mousekey-recorder.html"}
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZZ2H4KN5XN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZZ2H4KN5XN');
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg-deep:#080F1A;--bg-primary:#0D1B2A;--bg-card:#1B263B;--bg-elevated:#2A3A5F;--accent:#6EC1FF;--accent-glow:rgba(110,193,255,.15);--text-primary:#E0E1DD;--text-secondary:#A8DADC;--text-muted:#7B8FA3;--border:rgba(110,193,255,.08);--success:#4ADE80}
+        *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}body{font-family:'DM Sans',sans-serif;background:var(--bg-deep);color:var(--text-primary);line-height:1.6;overflow-x:hidden}
+        nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(8,15,26,.82);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text-primary)}.nav-brand img{width:32px;height:32px;border-radius:8px}.nav-brand span{font-weight:700;font-size:1.15rem;letter-spacing:-.02em}.nav-links{display:flex;align-items:center;gap:2rem;list-style:none}.nav-links a{color:var(--text-muted);text-decoration:none;font-size:.88rem;font-weight:500;transition:color .2s}.nav-links a:hover{color:var(--text-primary)}.nav-cta{background:var(--accent);color:var(--bg-deep)!important;padding:8px 20px;border-radius:8px;font-weight:600!important;transition:transform .2s,box-shadow .2s!important}.nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(110,193,255,.3)}.mobile-menu-btn{display:none;background:none;border:none;color:var(--text-primary);cursor:pointer;padding:8px}
+        .blog-hero{padding:120px 2rem 40px;max-width:780px;margin:0 auto}.blog-breadcrumb{font-size:.82rem;color:var(--text-muted);margin-bottom:1.5rem}.blog-breadcrumb a{color:var(--accent);text-decoration:none}.blog-breadcrumb a:hover{text-decoration:underline}.blog-meta{display:flex;align-items:center;gap:14px;font-size:.85rem;color:var(--text-muted);margin-bottom:1.5rem;flex-wrap:wrap}.blog-tag{display:inline-flex;padding:3px 10px;background:var(--accent-glow);border:1px solid rgba(110,193,255,.12);border-radius:100px;font-size:.72rem;color:var(--accent);font-weight:500}.blog-hero h1{font-size:clamp(1.8rem,4vw,2.4rem);font-weight:700;line-height:1.12;letter-spacing:-.025em;margin-bottom:1rem}.blog-hero .lead{color:var(--text-secondary);font-size:1.1rem;line-height:1.7}
+        .blog-article{max-width:780px;margin:0 auto;padding:0 2rem 80px}.blog-article h2{font-size:1.3rem;font-weight:700;margin:2.5rem 0 .75rem;letter-spacing:-.015em}.blog-article h3{font-size:1.05rem;font-weight:600;margin:1.5rem 0 .5rem}.blog-article p{color:var(--text-secondary);font-size:1rem;line-height:1.8;margin-bottom:1.25rem}.blog-article p strong{color:var(--text-primary)}.blog-article ul{color:var(--text-secondary);margin:0 0 1.5rem 1.25rem;font-size:1rem;line-height:1.8}.blog-article li{margin-bottom:.5rem}.blog-article li strong{color:var(--text-primary)}.blog-article a{color:#8DD4FF;text-decoration:underline;text-decoration-color:rgba(141,212,255,.4);text-underline-offset:3px;transition:text-decoration-color .2s}.blog-article a.btn-primary{color:var(--bg-deep);text-decoration:none}.blog-article a:hover{text-decoration-color:rgba(141,212,255,.9)}.blog-hero .lead a{color:#8DD4FF;text-decoration:underline;text-decoration-color:rgba(141,212,255,.4);text-underline-offset:3px}.callout a{color:#8DD4FF;text-decoration:underline;text-decoration-color:rgba(141,212,255,.4);text-underline-offset:3px}
+        .callout{margin:1.5rem 0;padding:20px 24px;background:var(--bg-card);border-radius:14px;border:1px solid var(--border);border-left:3px solid var(--accent)}.callout p{margin-bottom:0!important;color:var(--text-secondary)}.callout strong{color:var(--text-primary)}
+        .use-block{margin:1.5rem 0;padding:24px 28px;background:var(--bg-card);border-radius:16px;border:1px solid var(--border)}.use-block h3{font-size:1.05rem;font-weight:700;margin:0 0 .5rem 0;color:var(--text-primary)}.use-block p{color:var(--text-secondary);font-size:.95rem;line-height:1.7;margin-bottom:.5rem}.use-block p:last-child{margin-bottom:0}
+        code{font-family:'JetBrains Mono',monospace;font-size:.85rem;background:var(--bg-elevated);padding:2px 8px;border-radius:5px;color:var(--accent)}
+        .blog-cta{margin:3rem 0;padding:32px;background:var(--bg-card);border-radius:16px;border:1px solid var(--border);text-align:center}.blog-cta h3{font-size:1.15rem;font-weight:700;margin-bottom:.5rem}.blog-cta p{color:var(--text-muted);font-size:.92rem;margin-bottom:1.25rem}
+        footer{background:var(--bg-primary);border-top:1px solid var(--border);padding:36px 2rem}.footer-inner{max-width:780px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}.footer-left{display:flex;align-items:center;gap:10px}.footer-left img{width:24px;height:24px;border-radius:6px}.footer-left span{font-weight:600;font-size:.88rem}.footer-links{display:flex;gap:1.5rem}.footer-links a{color:var(--text-muted);font-size:.82rem;text-decoration:none;transition:color .2s}.footer-links a:hover{color:var(--text-primary)}.footer-copy{width:100%;text-align:center;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);font-size:.75rem;color:var(--text-muted)}
+        @media(max-width:640px){.nav-links{display:none}.mobile-menu-btn{display:block}.nav-links.open{display:flex;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:var(--bg-deep);padding:1.5rem 2rem;border-bottom:1px solid var(--border)}.blog-hero{padding:100px 1.25rem 30px}.blog-article{padding:0 1.25rem 60px}.footer-inner{flex-direction:column;text-align:center}.footer-links{justify-content:center}}
+    </style>
+</head>
+<body>
+<nav>
+    <a href="index.html" class="nav-brand"><img src="mousekey-logo.png" alt="MouseKey logo" width="32" height="32"><span>MouseKey</span></a>
+    <ul class="nav-links" id="navLinks"><li><a href="index.html#features">Features</a></li><li><a href="blog.html">Blog</a></li><li><a href="https://apps.microsoft.com/detail/9PHM28LJDZF5" class="nav-cta" target="_blank" rel="noopener">Get MouseKey</a></li></ul>
+    <button class="mobile-menu-btn" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Toggle menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
+</nav>
+
+<header class="blog-hero">
+    <div class="blog-breadcrumb"><a href="index.html">MouseKey</a> / <a href="blog.html">Blog</a></div>
+    <div class="blog-meta"><span>April 11, 2026</span><span class="blog-tag">Guide</span><span class="blog-tag">Macros</span><span class="blog-tag">Automation</span></div>
+    <h1>MouseKey Recorder: How to Create Timed Macros on Windows</h1>
+    <p class="lead">The MouseKey recorder is the macro recording feature built into MouseKey, the Windows mouse button remapping app. It lets you record any sequence of keystrokes and play them back from a mouse button click. Whether you need a simple text snippet or a multi-step automation that preserves exact timing, the recorder handles both with one recording interface.</p>
+</header>
+
+<article class="blog-article">
+
+    <h2>How the MouseKey recorder works</h2>
+    <p>The MouseKey recorder captures keystrokes as you perform them. You press Record in the MouseKey interface, type the sequence you want to automate, then press Stop. MouseKey saves it as a macro you can assign to any mouse button or <a href="blog-one-button-five-shortcuts.html">click cadence</a>. The next time you click that button, the macro plays back exactly as you recorded it.</p>
+    <p>You have two playback modes when using the MouseKey recorder:</p>
+    <ul>
+        <li><strong>Non-timed playback</strong> fires every keystroke in the recorded sequence as fast as possible, with no delays between keys. This is ideal for text insertion, command strings, and shortcuts where timing doesn't matter.</li>
+        <li><strong>Timed playback</strong> preserves the exact delays between keypresses from when you recorded. This matters when you need to wait for menus to open, pages to load, or animations to complete before the next keystroke fires.</li>
+    </ul>
+    <p>Both modes use the same recording. You choose which playback style fits your use case when you assign the macro. This is what makes the MouseKey recorder flexible enough to replace multiple single-purpose macro tools.</p>
+
+    <h2>Best uses for non-timed macros</h2>
+    <p>Non-timed macros are for anything where you just want text or commands to appear instantly. These are the highest-value use cases for the MouseKey recorder since they save time on every use.</p>
+
+    <div class="use-block">
+        <h3>Developer commands</h3>
+        <p>Record common terminal commands like <code>npm run dev</code>, <code>git status</code>, <code>git add . && git commit -m ""</code>, or <code>python manage.py runserver</code>. A single click on your side button fires the whole command. The MouseKey recorder captures Enter at the end if you want the command to execute immediately, or stops before Enter so you can type arguments first.</p>
+        <p>Developers often bind 5 or 6 different command macros to a single button using cadences: single click for <code>npm run dev</code>, double click for <code>git status</code>, triple click for <code>git pull</code>, and so on.</p>
+    </div>
+
+    <div class="use-block">
+        <h3>Code boilerplate</h3>
+        <p>Record snippets you use repeatedly: <code>console.log()</code>, import statements, function skeletons, JSX components. The MouseKey recorder works in any editor including VS Code, Cursor, JetBrains IDEs, Sublime Text, and Notepad++ since it's sending raw keystrokes at the OS level.</p>
+        <p>This effectively replaces code snippet extensions for your most-used patterns, with the advantage that it works across every editor you use without having to configure each one separately.</p>
+    </div>
+
+    <div class="use-block">
+        <h3>Excel formulas and functions</h3>
+        <p>Record complex Excel formulas you use regularly. A macro for <code>=VLOOKUP(,,,FALSE)</code> with the cursor positioned at the first argument saves typing the structure every time. Same for <code>=SUMIFS()</code>, <code>=INDEX(MATCH())</code>, and pivot table shortcuts.</p>
+        <p>The MouseKey recorder can also replay menu navigation sequences like Alt+H+O+I for autofit column width or Alt+D+F+F to toggle filters. These are buried in Excel's ribbon but become one-click operations through the macro recorder.</p>
+    </div>
+
+    <div class="use-block">
+        <h3>Email templates</h3>
+        <p>Record signature blocks, common replies, or meeting templates. "Thanks for reaching out, I'll get back to you by end of day" becomes a single click. The same macro works in Outlook, Gmail, Slack, and any text field since the MouseKey recorder is app-agnostic.</p>
+    </div>
+
+    <div class="use-block">
+        <h3>Login credentials (for non-sensitive accounts)</h3>
+        <p>Record username + Tab + common test password for development environments, internal tools, or shared test accounts. This should never be used for accounts containing sensitive data since the text is stored in your macro configuration, but for developer test accounts and local dev environments, it's a real time saver.</p>
+    </div>
+
+    <div class="use-block">
+        <h3>Customer support responses</h3>
+        <p>Record your most common support replies as macros. "Thanks for your message, we've received your ticket and will respond within 24 hours" becomes one click. Teams doing customer support often record a dozen different response macros and map them across their mouse buttons with cadences.</p>
+    </div>
+
+    <h2>Best uses for timed macros</h2>
+    <p>Timed macros preserve the delays between keystrokes. This matters for anything where the app you're controlling needs time to respond between steps. The MouseKey recorder's timed playback handles these cases by replaying the exact pacing of your original recording.</p>
+
+    <div class="use-block">
+        <h3>Multi-step app navigation</h3>
+        <p>If you need to open a menu, wait for it to appear, click an option, wait for a dialog, then confirm, timing matters. Recording a fast sequence with the MouseKey recorder and replaying it non-timed would fire clicks before the menus open. Timed playback reproduces your original pacing so each step has room to execute.</p>
+    </div>
+
+    <div class="use-block">
+        <h3>Form filling with validation</h3>
+        <p>Web forms often have field validation that fires on blur or input. If you fire keystrokes too fast, some forms reject them or skip fields. Timed macros give the form time to process each field before moving to the next.</p>
+    </div>
+
+    <div class="use-block">
+        <h3>Game macros</h3>
+        <p>Game combos require specific timing between inputs. A fighting game combo, an MMO rotation, or a crafting sequence all depend on precise delays between keystrokes. Record the combo once at the right speed and the MouseKey recorder plays it back identically on command.</p>
+        <p>Always check your specific game's terms of service before using automation features, especially in competitive multiplayer games.</p>
+    </div>
+
+    <div class="use-block">
+        <h3>Software installation and setup</h3>
+        <p>Setting up a new machine or provisioning a dev environment often involves clicking through installers that need time between steps. A timed macro can walk through an installation's keyboard navigation with the right pauses, so you just click once and walk away while it completes.</p>
+    </div>
+
+    <div class="use-block">
+        <h3>Data entry with system delays</h3>
+        <p>Internal business apps and legacy systems often have slow response times between screens. Timed macros let you record a full data entry sequence that includes the waiting time the system actually needs, so your macro works reliably even on a slow remote desktop connection.</p>
+    </div>
+
+    <h2>Combining macros with click cadences</h2>
+    <p>The real productivity boost from the MouseKey recorder happens when you combine macros with click cadences. Each mouse button gets 6 actions (1x click through 5x click plus a 2-second hold), and each action can be a different macro. A single side button can hold 6 different recorded sequences.</p>
+    <p>A developer might configure a side button like this: single click fires <code>npm run dev</code>, double click fires <code>git status</code>, triple click fires a longer deployment macro with timing, 4x click fires their test command, 5x click fires <code>git pull --rebase</code>, and hold opens the terminal. Six commands, one button, all recorded once in the MouseKey recorder.</p>
+
+    <h2>Why use the MouseKey recorder instead of a dedicated macro tool</h2>
+    <p>Standalone macro recorders exist, but they usually hook to keyboard triggers or scheduled runs rather than mouse clicks. If you want a macro on your mouse, you end up stringing together multiple tools. The MouseKey recorder combines the macro recording and the mouse binding in a single app, so the whole flow from recording to playback lives in one place.</p>
+    <p>The MouseKey recorder also integrates with MouseKey's <a href="blog-v2-1-update.html">auto profile switching</a>, which means your macros can be tied to specific apps. One set of macros for VS Code, another for Excel, a third for your browser, all on the same mouse buttons, switching automatically when you click between apps.</p>
+
+    <div class="callout">
+        <p><strong>Not a developer?</strong> The MouseKey recorder works just as well for non-coding use cases. See our guides on <a href="blog-productivity-app-shortcuts.html">productivity shortcuts for Photoshop, Excel, and VS Code</a> and <a href="blog-arthritis-mouse-buttons.html">ergonomic mouse setups for users with limited keyboard access</a>.</p>
+    </div>
+
+    <h2>Getting started with the MouseKey recorder</h2>
+    <p>To create your first macro with the MouseKey recorder, open MouseKey, go to the action picker for any button or cadence, and select Record Macro. Press the record button, perform your keystrokes, then stop. Choose whether you want timed or non-timed playback, save the macro, and click your mouse button to play it back.</p>
+    <p>Start with one high-value macro. Pick the command or text string you type most often and record it. Once you see how much time a single macro saves, you'll find more use cases for the recorder quickly.</p>
+
+    <div class="blog-cta">
+        <h3>Get MouseKey</h3>
+        <p>Includes the MouseKey recorder for timed and non-timed macros on any mouse button.</p>
+        <div style="display:flex;justify-content:center;margin:1.25rem auto 0">
+            <a href="https://apps.microsoft.com/detail/9PHM28LJDZF5" target="_blank" rel="noopener"><img src="https://get.microsoft.com/images/en-us%20light.svg" alt="Get it from Microsoft Store" style="width:300px;max-width:100%"></a>
+        </div>
+    </div>
+
+</article>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-left"><img src="mousekey-logo.png" alt="MouseKey" width="24" height="24"><span>MouseKey</span></div>
+        <div class="footer-links"><a href="index.html">Home</a><a href="privacy.html">Privacy</a><a href="blog.html">Blog</a><a id="footerEmail" href="#">Contact</a></div>
+        <div class="footer-copy">&copy; 2025 Vaelor. MouseKey is an independent product, not affiliated with or endorsed by Microsoft Corporation.</div>
+    </div>
+</footer>
+<script>(function(){var u='MSKey093';var d='gmail.com';var e=u+'@'+d;var f=document.getElementById('footerEmail');if(f){f.href='mailto:'+e;}document.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('navLinks').classList.remove('open')})});})();</script>
+</body>
+</html>
