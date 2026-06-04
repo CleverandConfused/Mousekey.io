@@ -50,9 +50,9 @@
         "name": "MouseKey - Remap and Add More Mouse Buttons",
         "operatingSystem": "Windows 10, Windows 11",
         "applicationCategory": "UtilitiesApplication",
-        "softwareVersion": "2.1",
+        "softwareVersion": "2.2",
         "offers": {"@type": "Offer", "availability": "https://schema.org/InStock"},
-        "aggregateRating": {"@type": "AggregateRating", "ratingValue": "5", "ratingCount": "4", "bestRating": "5"},
+        "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "ratingCount": "7", "bestRating": "5"},
         "author": {"@type": "Organization", "name": "Vaelor"},
         "description": "MouseKey adds smart buttons to any mouse. Up to 6 programmable actions per button using click cadences. A lean alternative to G Hub, Synapse, and X-Mouse.",
         "url": "https://mousekey.site/"
@@ -98,6 +98,14 @@
         .btn-primary svg{width:18px;height:18px}
         .btn-secondary{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:transparent;color:var(--text-primary);border:1px solid rgba(232,234,237,.12);border-radius:12px;font-size:1rem;font-weight:500;font-family:inherit;cursor:pointer;text-decoration:none;transition:border-color .2s,background .2s}
         .btn-secondary:hover{border-color:rgba(232,234,237,.25);background:rgba(255,255,255,.02)}
+        .hero-downloads{display:flex;flex-direction:column;gap:12px;align-items:center;animation:fadeInUp .6s .3s ease both}
+        .dl-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 36px;border-radius:12px;font-size:1.05rem;font-weight:700;font-family:inherit;cursor:pointer;text-decoration:none;transition:transform .2s,box-shadow .2s;min-width:300px;text-align:center}
+        .dl-btn:hover{transform:translateY(-2px)}
+        .dl-primary{background:var(--accent);color:var(--bg-deep);border:none;box-shadow:0 4px 20px rgba(110,193,255,.2)}
+        .dl-primary:hover{box-shadow:0 8px 30px rgba(110,193,255,.35)}
+        .dl-secondary{background:transparent;color:var(--text-primary);border:1px solid rgba(232,234,237,.15)}
+        .dl-secondary:hover{border-color:rgba(232,234,237,.3);background:rgba(255,255,255,.02)}
+        .dl-btn svg{width:20px;height:20px;flex-shrink:0}
         .hero-stats{display:flex;gap:3rem;margin-top:3.5rem;animation:fadeInUp .6s .4s ease both}
         .hero-stat{text-align:center}
         .hero-stat .num{font-size:1.8rem;font-weight:800;letter-spacing:-.02em}
@@ -181,7 +189,7 @@
 
         /* REVIEWS */
         #reviews{background:var(--bg-primary)}
-        .reviews-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+        .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
         .review-card{background:var(--bg-card);border-radius:16px;padding:30px 26px;border:1px solid var(--border);display:flex;flex-direction:column}
         .review-stars{color:var(--star);font-size:1rem;margin-bottom:.75rem;letter-spacing:2px}
         .review-title{font-weight:600;font-size:.95rem;margin-bottom:.6rem}
@@ -235,8 +243,8 @@
         .reveal.visible{opacity:1;transform:translateY(0)}
 
         /* RESPONSIVE */
-        @media(max-width:900px){.value-grid,.features-grid{grid-template-columns:repeat(2,1fr)}.steps-grid{grid-template-columns:repeat(2,1fr)}.reviews-grid,.audience-grid{grid-template-columns:1fr}.cadence-row,.screenshots-grid{grid-template-columns:1fr}.privacy-grid{grid-template-columns:1fr}.compare-table{font-size:.85rem}.hero-stats{gap:1.5rem}}
-        @media(max-width:640px){.nav-links{display:none}.mobile-menu-btn{display:block}.nav-links.open{display:flex;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:var(--bg-deep);padding:1.5rem 2rem;border-bottom:1px solid var(--border)}.value-grid,.features-grid,.steps-grid{grid-template-columns:1fr}.hero-stats{flex-direction:column;gap:1rem}section{padding:60px 1.25rem}.footer-inner{flex-direction:column}.hero h1{font-size:2.2rem}}
+        @media(max-width:900px){.value-grid,.features-grid{grid-template-columns:repeat(2,1fr)}.steps-grid{grid-template-columns:repeat(2,1fr)}.reviews-grid{grid-template-columns:repeat(2,1fr)}.audience-grid{grid-template-columns:1fr}.cadence-row,.screenshots-grid{grid-template-columns:1fr}.privacy-grid{grid-template-columns:1fr}.compare-table{font-size:.85rem}.hero-stats{gap:1.5rem}}
+        @media(max-width:640px){.nav-links{display:none}.mobile-menu-btn{display:block}.nav-links.open{display:flex;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:var(--bg-deep);padding:1.5rem 2rem;border-bottom:1px solid var(--border)}.value-grid,.features-grid,.steps-grid,.reviews-grid{grid-template-columns:1fr}.hero-stats{flex-direction:column;gap:1rem}section{padding:60px 1.25rem}.footer-inner{flex-direction:column}.hero h1{font-size:2.2rem}.dl-btn{min-width:260px;padding:14px 28px;font-size:.95rem}}
     </style>
 </head>
 <body>
@@ -258,13 +266,16 @@
 <!-- HERO -->
 <section class="hero" id="top">
     <h1><span class="accent">MouseKey.</span> Remap and Add More Mouse Buttons.</h1>
-    <p class="hero-sub">Add more smart buttons to any mouse. Even basic mice without side buttons. By using MouseKey's novel <em style="color:var(--accent);font-style:italic">click cadence</em> technology, any button can have up to 6 actions.</p>
-    <p class="hero-compare">A lean, fast alternative to <strong>G Hub</strong>, <strong>Synapse</strong>, and <strong>X-Mouse</strong>.</p>
-    <div style="display:flex;justify-content:center;margin:1rem auto 0"><a href="https://apps.microsoft.com/detail/9PHM28LJDZF5" target="_blank" rel="noopener"><img src="https://get.microsoft.com/images/en-us%20light.svg" alt="Get it from Microsoft Store" style="width:300px;max-width:100%"></a></div>
+    <p class="hero-sub">Add more smart buttons to any mouse. Using click cadences, you can map up to 6 actions for any button, even the left and right buttons. Single click, double click, triple click, hold. Each fires a different shortcut. Works with any mouse, any brand.</p>
+    <p class="hero-compare">A lean alternative to buggy mouse software without the learning curve. Just fast, precise button mapping.</p>
+    <div class="hero-downloads">
+        <a href="MouseKey_App_V2_2_4.zip" class="dl-btn dl-primary" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Download for Windows</a>
+        <a href="https://apps.microsoft.com/detail/9PHM28LJDZF5" class="dl-btn dl-secondary" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h8.5v8.5H3V3zm9.5 0H21v8.5h-8.5V3zM3 12.5h8.5V21H3v-8.5zm9.5 0H21V21h-8.5v-8.5z"/></svg>Download on Microsoft Store</a>
+    </div>
     <div class="hero-stats">
         <div class="hero-stat"><div class="num accent-c">6</div><div class="lbl">Actions Per Button</div></div>
         <div class="hero-stat"><div class="num warm-c">Any</div><div class="lbl">Mouse Brand / Model</div></div>
-        <div class="hero-stat"><div class="num">★★★★★</div><div class="lbl">5-Star Reviews</div></div>
+        <div class="hero-stat"><div class="num">★★★★★</div><div class="lbl">7 Reviews</div></div>
         <div class="hero-stat"><div class="num accent-c">0%</div><div class="lbl">Data Collected</div></div>
     </div>
 </section>
@@ -273,16 +284,16 @@
 <div class="screenshots reveal">
     <div class="screenshots-grid">
         <div class="ss-card ss-main" style="grid-column:1/-1">
-            <img src="mousekey-app-screenshot.png" alt="MouseKey 2.1 main window showing 8 configurable button slots with multiple mouse buttons and click sequences" width="1170" height="777" loading="lazy">
-            <div class="ss-card-label"><strong>MouseKey 2.1</strong> Main Window</div>
+            <img src="MainWindow_V2_2_0.png" alt="MouseKey 2.2 main window showing button slots with Middle Scroll Button, Thumb Button, and Super Scroll configured across multiple click cadences" loading="lazy">
+            <div class="ss-card-label"><strong>MouseKey 2.2</strong> Main Window</div>
         </div>
         <div class="ss-card">
-            <img src="mousekey-select-button.png" alt="MouseKey button selection dropdown showing Middle, Tilt Left, Tilt Right, Back, Forward, Scroll, and custom buttons" width="1148" height="732" loading="lazy">
-            <div class="ss-card-label"><strong>Select or add any mouse button</strong>, any brand</div>
+            <img src="CreateHotkey_V2_2_0.png" alt="MouseKey Record Key Strokes dialog with timing sensitive toggle, start over, and save buttons" loading="lazy">
+            <div class="ss-card-label"><strong>Record custom hotkeys</strong> or type text to replay</div>
         </div>
         <div class="ss-card">
-            <img src="mousekey-select-action.png" alt="MouseKey action dropdown showing Copy, Select Window, Hide Windows, Esc, Print Screen, Screen Snip, Volume, Mute, Brightness, and Create Hot Key" width="1181" height="782" loading="lazy">
-            <div class="ss-card-label"><strong>Pick a preset action</strong> or record custom macros</div>
+            <img src="Record_Macro.png" alt="MouseKey macro recording showing a captured text string ready to save" loading="lazy">
+            <div class="ss-card-label"><strong>Timed or instant playback</strong> for macros and text</div>
         </div>
     </div>
 </div>
@@ -292,7 +303,7 @@
     <div class="section-container reveal">
         <div class="section-label">Why MouseKey</div>
         <h2 class="section-title">More actions. Less hardware. Zero complexity.</h2>
-        <p class="section-desc">Whether you're on a basic office mouse or a gaming mouse with a dozen buttons, MouseKey lets you assign more actions than ever, without the headaches.</p>
+        <p class="section-desc">Using a basic mouse? Smart actions can be created using the middle scroll button, left, and right buttons with holds and multi-clicks. Using a gaming mouse? Set as many smart actions as you can. Set profiles to switch automatically for any chosen app.</p>
         <div class="value-grid">
             <div class="value-card">
                 <div class="value-num">6×</div>
@@ -318,37 +329,37 @@
     <div class="section-container reveal">
         <div class="section-label">Features</div>
         <h2 class="section-title">Everything you need. Nothing you don't.</h2>
-        <p class="section-desc">Built for power users who want control without complexity.</p>
+        <p class="section-desc">22 built-in shortcuts ready to go. Copy, paste, undo, screenshot, volume controls, and more. No scripting or memorizing hotkeys. Set up a profile in under a minute.</p>
         <div class="features-grid">
             <div class="feature-card">
                 <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4m0 14v4M4.22 4.22l2.83 2.83m9.9 9.9l2.83 2.83M1 12h4m14 0h4M4.22 19.78l2.83-2.83m9.9-9.9l2.83-2.83"/></svg></div>
-                <h3>Click Cadence + Hold Shortcuts</h3>
-                <p>1 to 5 clicks, plus a 2-second hold. Each pattern on any button triggers a different action. 6 actions per button.</p>
+                <h3>Click Cadences + Hold</h3>
+                <p>1 to 5 clicks, plus a 2-second hold. Each pattern on any button triggers a different action. 6 actions per button, including left and right.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M8 12h8M12 8v8"/></svg></div>
-                <h3>Timed Macro Recording</h3>
-                <p>Record keyboard shortcuts or multi-step macros with "Create Hot Key." Playback preserves your original timing between keystrokes.</p>
+                <h3>Custom Hotkeys and Macros</h3>
+                <p>Record your own keyboard shortcuts or multi-step macros. Optional timing-sensitive playback preserves your original pace between keystrokes.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg></div>
-                <h3>Unlimited Profiles</h3>
-                <p>Create unlimited profiles and switch between them with a mouse button. Separate setups for work, gaming, and everything else.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-                <h3>100% Offline &amp; Private</h3>
-                <p>No telemetry, no analytics, no account. Your data stays on your device. Always.</p>
+                <h3>Auto Profile Switching</h3>
+                <p>Create unlimited profiles. Link them to apps so MouseKey switches automatically when you change windows. No manual toggling.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
-                <h3>Button Reassignment</h3>
-                <p>Remap any mouse button to act as a different button. Disable buttons you don't want. Rearrange your entire mouse layout.</p>
+                <h3>System Controls</h3>
+                <p>Adjust volume, brightness, pointer speed, and scroll speed from any button. Super Scroll for faster scrolling. Switch left and right buttons.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <h3>100% Offline and Private</h3>
+                <p>No telemetry, no analytics, no account. Your data stays on your device. MouseKey does not require network access to function.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 9h16M9 4v16"/></svg></div>
-                <h3>System Tray Integration</h3>
-                <p>Runs quietly in the background. Enable, disable, or open anytime from the tray icon.</p>
+                <h3>Button Reassignment</h3>
+                <p>Remap any mouse button to act as a different button. Disable buttons you don't want. Runs minimally in the background from the system tray.</p>
             </div>
         </div>
     </div>
@@ -417,7 +428,7 @@
         <div class="section-label">How It Works</div>
         <h2 class="section-title">Up and running in under a minute.</h2>
         <div class="steps-grid">
-            <div class="step-card"><h3>Install</h3><p>Get MouseKey from the Microsoft Store. No account required.</p></div>
+            <div class="step-card"><h3>Install</h3><p>Download the portable version or get MouseKey from the Microsoft Store. No account required.</p></div>
             <div class="step-card"><h3>Add Buttons</h3><p>Click + to add button slots. Select any mouse button from the dropdown, even custom ones.</p></div>
             <div class="step-card"><h3>Assign Actions</h3><p>Pick from presets or record custom hotkeys. Set the click cadence (1 to 5 clicks) for each action.</p></div>
             <div class="step-card"><h3>Done</h3><p>MouseKey runs in the background. Your mouse is now supercharged.</p></div>
@@ -431,10 +442,12 @@
         <div class="section-label">Reviews</div>
         <h2 class="section-title">What real users say.</h2>
         <div class="reviews-grid">
-            <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-title">"Great app to save time and increase productivity"</div><div class="review-body">I love this new app that allows me to use short cuts on my mouse and customize to my needs. And it lets me switch between workflows as I need. This increases my productivity and is very user friendly.</div><div class="review-meta">🇺🇸 United States · Laptop</div></div>
-            <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-title">"Simple and effective"</div><div class="review-body">I love this app is easy to use and not intimidating. It helps me add more hotkeys and functionality to my simple mouse.</div><div class="review-meta">🇺🇸 United States · PC</div></div>
-            <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-title">"Great!"</div><div class="review-body">It's a very useful tool, simple, fast… and also funny! Complete and the possibility to create custom profiles is a good idea to save time and keep things organized.</div><div class="review-meta">🇮🇹 Italy · PC</div></div>
-            <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-title">"Saved my Ctrl+C &amp; V keys"</div><div class="review-body">After a little bit of training exercise (just few minutes) the two and three clicks have been done automatically. A nice option are the custom keys — put a text string or mute your audio output. A really nice tool. Top.</div><div class="review-meta">🇩🇪 Germany · PC</div></div>
+            <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-title">"I'm leaving x-Mouse Button for this"</div><div class="review-body">After 2 weeks of continual usage, it seems like an upgrade from X-Mouse Button. What I like about mousegesture is the unique feature that you can map specific click cadences. I also like that this app is being actively developed whereas x-mouse feels like it has been left in the dust.</div><div class="review-meta">Geb</div></div>
+            <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-title">"A better G Hub"</div><div class="review-body">I was previously using G Hub and I found this software much more powerful and easier to use. I found that on mousekey.site.</div><div class="review-meta">William</div></div>
+            <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-title">"Simple and Effective"</div><div class="review-body">Simple, effective, and easy to use. It does exactly what I need without making things complicated. The layout is straightforward and everything works smoothly. Great app overall!</div><div class="review-meta">Damien</div></div>
+            <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-title">"Works well and user friendly"</div><div class="review-body">This simple app allowed me to add a few buttons to my mouse by using the double click feature. I thought setup was easy and very user friendly.</div><div class="review-meta">Valerie</div></div>
+            <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-title">"Great app to save time and increase productivity"</div><div class="review-body">I love this new app that allows me to use short cuts on my mouse and customize to my needs. And it lets me switch between workflows as I need. This increases my productivity and is very user friendly.</div><div class="review-meta">🇺🇸 United States</div></div>
+            <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-title">"Saved my Ctrl+C &amp; V keys"</div><div class="review-body">After a little bit of training exercise (just few minutes) the two and three clicks have been done automatically. A nice option are the custom keys. Put a text string or mute your audio output. A really nice tool. Top.</div><div class="review-meta">🇩🇪 Germany</div></div>
         </div>
     </div>
 </section>
@@ -457,7 +470,7 @@
 <section id="instructions">
     <div class="section-container reveal">
         <div class="section-label">Instructions for Use</div>
-        <h2 class="section-title">Getting started with MouseKey 2.1</h2>
+        <h2 class="section-title">Getting started with MouseKey 2.2</h2>
         <div class="ifu-content">
             <div class="ifu-block"><h3>Adding &amp; Configuring Buttons</h3><p>Click the + button to add a new slot. Select any mouse button from the dropdown: Middle, Back, Forward, Tilt Left/Right, Scroll, or any custom button your mouse has. Choose a click sequence number (1 to 5) and assign an action from the presets or record a custom hotkey.</p></div>
             <div class="ifu-block"><h3>Click Cadences</h3><p>Each button slot has a Click Sequence setting. Setting it to 1 means single-click triggers the action. Setting it to 2 means double-click, and so on up to 5. You can also assign a 2-second hold action for a 6th shortcut per button. You can have multiple slots for the same button with different click sequences, giving you up to 6 distinct actions per button.</p></div>
@@ -476,7 +489,7 @@
         <div class="faq-list">
             <div class="faq-item"><button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">Does MouseKey work with any mouse?</button><div class="faq-a">Yes. MouseKey works at the system level and intercepts mouse input regardless of brand, model, or driver. Any mouse with buttons works. No proprietary hardware needed.</div></div>
             <div class="faq-item"><button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">How is this different from G Hub or Synapse?</button><div class="faq-a">G Hub and Synapse only work with their own brand's hardware and are known for being heavy, buggy, and requiring cloud accounts. MouseKey works with any mouse, is lightweight, fully offline, and gives you click cadence actions that those apps can't do.</div></div>
-            <div class="faq-item"><button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">What's new in version 2.1?</button><div class="faq-a">Version 2.1 adds hold-to-trigger actions (6 actions per button), timed macro recording with playback, mouse button reassignment, button disabling, unlimited profiles with mouse-based switching, and a customizable disable toggle. Choose which button turns MouseKey on and off.</div></div>
+            <div class="faq-item"><button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">What's new in version 2.2?</button><div class="faq-a">Version 2.2 adds per-profile pointer and scroll speed settings, Super Scroll toggle hotkey, system controls for volume and brightness, and adjustable hold duration. Earlier 2.x releases added hold-to-trigger actions (6 actions per button), timed macro recording, button reassignment, auto profile switching, and unlimited profiles.</div></div>
             <div class="faq-item"><button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">Will MouseKey interfere with my normal mouse clicks?</button><div class="faq-a">Only buttons you configure are intercepted. You can toggle MouseKey off by holding your chosen disable button for 2 seconds and all buttons return to normal function instantly.</div></div>
             <div class="faq-item"><button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">What Windows versions are supported?</button><div class="faq-a">Windows 10 (version 1903+) and Windows 11. MouseKey is a native desktop app built with WPF and .NET 8.</div></div>
             <div class="faq-item"><button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">Can I use it on a work computer?</button><div class="faq-a">MouseKey uses documented Windows APIs. On managed devices, security software may restrict input automation tools. Check your organization's policy before installing.</div></div>
@@ -488,8 +501,11 @@
 <section class="final-cta">
     <div class="section-container reveal">
         <h2>Ready to supercharge your mouse?</h2>
-        <p>Works with any mouse. Up to 6 actions per button. Set up in under a minute.</p>
-        <div style="display:flex;justify-content:center;margin:1.25rem auto 0"><a href="https://apps.microsoft.com/detail/9PHM28LJDZF5" target="_blank" rel="noopener"><img src="https://get.microsoft.com/images/en-us%20light.svg" alt="Get it from Microsoft Store" style="width:300px;max-width:100%"></a></div>
+        <p>Works with any mouse. Up to 6 actions per button. Built for office workers, developers, gamers, and power users.</p>
+        <div style="display:flex;flex-direction:column;gap:12px;align-items:center;margin-top:1.5rem">
+            <a href="MouseKey_App_V2_2_4.zip" class="dl-btn dl-primary" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Download for Windows</a>
+            <a href="https://apps.microsoft.com/detail/9PHM28LJDZF5" class="dl-btn dl-secondary" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h8.5v8.5H3V3zm9.5 0H21v8.5h-8.5V3zM3 12.5h8.5V21H3v-8.5zm9.5 0H21V21h-8.5v-8.5z"/></svg>Download on Microsoft Store</a>
+        </div>
     </div>
 </section>
 
