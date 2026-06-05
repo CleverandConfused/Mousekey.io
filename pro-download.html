@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MouseKey Pro Download</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/png" href="mousekey-logo.png">
+    <meta name="theme-color" content="#0D1B2A">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg-deep:#080F1A;--bg-primary:#0D1B2A;--bg-card:#1B263B;--bg-elevated:#2A3A5F;--accent:#6EC1FF;--accent-glow:rgba(110,193,255,.15);--text-primary:#E0E1DD;--text-secondary:#A8DADC;--text-muted:#7B8FA3;--border:rgba(110,193,255,.08);--success:#4ADE80;--error:#F87171}
+        *{margin:0;padding:0;box-sizing:border-box}html{-webkit-font-smoothing:antialiased}body{font-family:'DM Sans',sans-serif;background:var(--bg-deep);color:var(--text-primary);line-height:1.6;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem}
+        .container{max-width:440px;width:100%;text-align:center}
+        .logo{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:2rem}.logo img{width:36px;height:36px;border-radius:8px}.logo span{font-weight:700;font-size:1.25rem}
+        h1{font-size:1.5rem;font-weight:700;margin-bottom:.5rem}
+        .sub{color:var(--text-muted);font-size:.9rem;margin-bottom:2rem}
+        .key-form{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:32px 28px}
+        .key-form label{display:block;font-size:.85rem;font-weight:600;color:var(--text-secondary);margin-bottom:.5rem;text-align:left}
+        .key-input-row{display:flex;gap:10px}
+        .key-input-row input{flex:1;padding:12px 16px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:10px;color:var(--text-primary);font-family:'JetBrains Mono',monospace;font-size:.95rem;outline:none;transition:border-color .2s}
+        .key-input-row input:focus{border-color:var(--accent)}
+        .key-input-row input::placeholder{color:var(--text-muted)}
+        .key-btn{padding:12px 24px;background:var(--accent);color:var(--bg-deep);border:none;border-radius:10px;font-size:.9rem;font-weight:700;font-family:inherit;cursor:pointer;transition:transform .2s,box-shadow .2s;white-space:nowrap}
+        .key-btn:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(110,193,255,.3)}
+        .msg{margin-top:1rem;font-size:.85rem;min-height:1.25rem}
+        .msg.error{color:var(--error)}
+        .msg.success{color:var(--success)}
+        .dl-area{margin-top:1.5rem;display:none}
+        .dl-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 32px;background:var(--accent);color:var(--bg-deep);border-radius:12px;font-size:1rem;font-weight:700;font-family:inherit;text-decoration:none;transition:transform .2s,box-shadow .2s}
+        .dl-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(110,193,255,.3)}
+        .dl-btn svg{width:20px;height:20px;flex-shrink:0}
+        .version{font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--text-muted);margin-top:.75rem}
+        .help{margin-top:2rem;font-size:.82rem;color:var(--text-muted)}
+        .help a{color:var(--accent);text-decoration:none}
+        .help a:hover{text-decoration:underline}
+        @media(max-width:480px){.key-input-row{flex-direction:column}.key-btn{width:100%}}
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="logo"><img src="mousekey-logo.png" alt="MouseKey" width="36" height="36"><span>MouseKey Pro</span></div>
+    <h1>Download MouseKey Pro</h1>
+    <p class="sub">Enter your download key to continue.</p>
+
+    <div class="key-form">
+        <label for="keyInput">Download Key</label>
+        <div class="key-input-row">
+            <input type="text" id="keyInput" placeholder="MKPRO-XXXXXX" autocomplete="off" spellcheck="false">
+            <button class="key-btn" id="keyBtn" onclick="validateKey()">Unlock</button>
+        </div>
+        <div class="msg" id="msg"></div>
+        <div class="dl-area" id="dlArea">
+            <a href="MousekeyPro_2_2_4.zip" class="dl-btn" download onclick="gtag('event','pro_portable_download',{file:'v2.2.4'})"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Download MouseKey Pro</a>
+            <div class="version">v2.2.4 (Portable)</div>
+        </div>
+    </div>
+
+    <p class="help">Need a key? Purchase MouseKey Pro from within the app or <a href="pro-troubleshooting.html">get help here</a>.</p>
+</div>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZZ2H4KN5XN"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-ZZ2H4KN5XN');
+</script>
+<script>
+async function sha256(str){
+    var buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(str));
+    return Array.from(new Uint8Array(buf)).map(function(b){return b.toString(16).padStart(2,'0')}).join('');
+}
+async function getValidHashes(){
+    var now=new Date();
+    var cm=String(now.getMonth()+1).padStart(2,'0');
+    var cy=String(now.getFullYear());
+    var pm,py;
+    if(now.getMonth()===0){pm='12';py=String(now.getFullYear()-1);}
+    else{pm=String(now.getMonth()).padStart(2,'0');py=cy;}
+    var h1=await sha256('MKPRO-'+cm+cy);
+    var h2=await sha256('MKPRO-'+pm+py);
+    return[h1,h2];
+}
+async function validateKey(){
+    var input=document.getElementById('keyInput').value.trim().toUpperCase();
+    var msg=document.getElementById('msg');
+    var dl=document.getElementById('dlArea');
+    if(!input){msg.className='msg error';msg.textContent='Enter a download key.';return;}
+    var inputHash=await sha256(input);
+    var valid=await getValidHashes();
+    if(valid.indexOf(inputHash)!==-1){
+        msg.className='msg success';msg.textContent='Key accepted.';
+        dl.style.display='block';
+        document.getElementById('keyBtn').disabled=true;
+        document.getElementById('keyInput').disabled=true;
+    }else{
+        msg.className='msg error';msg.textContent='Invalid or expired key.';
+        dl.style.display='none';
+    }
+}
+document.getElementById('keyInput').addEventListener('keydown',function(e){if(e.key==='Enter')validateKey();});
+</script>
+</body>
+</html>
